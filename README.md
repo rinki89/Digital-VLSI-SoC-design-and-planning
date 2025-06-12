@@ -23,7 +23,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
 - ✅ Run the picorv32a design floorplanning using the OpenLANE flow, and generate the necessary output files.
 - ✅ Calculate the die area in microns using the values from the generated floorplan DEF file:
-           Die Area=Die Width (µm)×Die Height (µm)
+-              Die Area=Die Width (µm)×Die Height (µm)
 - ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
 - ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
 - ✅ Load the generated placement DEF file in Magic and explore the placement.
