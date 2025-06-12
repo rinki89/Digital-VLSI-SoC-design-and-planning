@@ -15,7 +15,19 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
 
-## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells 
+## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+### ⚙️ Implementation
+
+#### Tasks:
+   
+- ✅ Run the picorv32a design floorplanning using the OpenLANE flow, and generate the necessary output files.
+- ✅ Calculate the die area in microns using the values from the generated floorplan DEF file:
+-        Die Area (in microns) = Die Width (in microns) × Die Height (in microns)
+- ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
+- ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
+- ✅ Load the generated placement DEF file in Magic and explore the placement.
+  
 ## 📘 Day 3 - Design library cell using Magic Layout and ngspice characterization 
 ## 📘 Day 4 - Pre-layout timing analysis and importance of good clock tree 
 ## 📘 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
