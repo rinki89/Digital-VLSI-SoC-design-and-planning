@@ -15,7 +15,10 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
 
+
 ## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+### 🔬 Theory
 
 ### ⚙️ Implementation
 
@@ -27,6 +30,15 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 - ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
 - ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
 - ✅ Load the generated placement DEF file in Magic and explore the placement.
+1. Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
+Commands to invoke the OpenLANE flow and perform floorplan
+
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
   
 ## 📘 Day 3 - Design library cell using Magic Layout and ngspice characterization 
 ## 📘 Day 4 - Pre-layout timing analysis and importance of good clock tree 
