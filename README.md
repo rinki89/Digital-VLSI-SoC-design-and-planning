@@ -14,8 +14,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 - ✅ Calculate the Flop Ratio
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
-   Commands to invoke the OpenLANE flow 
-![openlane](Day1/flow.png)
+   Commands to invoke the OpenLANE flow
 
 
 ## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
