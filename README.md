@@ -15,7 +15,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
 -Commands to invoke the OpenLANE flow
-   ![](flow.png)
+   ![](Day1/flow.png)
 
 
 ## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
