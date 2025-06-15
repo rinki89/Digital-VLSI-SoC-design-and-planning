@@ -63,18 +63,20 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/dia%20area%20.png)
 
-   ## Die Area Calculation from `floorplan.def`
-
-**Unit Distance:**  
+Die Area Calculation from `floorplan.def`
+Unit Distance:
 1000 units = 1 micron
-### 🔹 Die Dimensions (in Unit Distance):
+
+ Die Dimensions (in Unit Distance):
 - Die Width  = 660685 − 0 = **660685 units**
 - Die Height = 671405 − 0 = **671405 units**
-### 🔹 Convert to Microns:
+
+Convert to Microns:
 Die Width (µm)  =  
 660685 / 1000 = **660.685 µm**
 Die Height (µm) =  671405 / 1000 = **671.405 µm**
-### 🔹 Die Area (in Square Microns):
+
+Die Area (in Square Microns):
 Die Area = Width × Height  
       = 660.685 × 671.405  
       = **443,587.212425 µm²**
