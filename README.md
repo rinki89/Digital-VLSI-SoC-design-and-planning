@@ -62,38 +62,35 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
    Below is a screenshot or snippet showing the relevant part of the `floorplan.def` file:
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/dia%20area%20.png)
+   Die Area Calculation from `floorplan.def`
+   Unit Distance:
+   1000 units = 1 micron
 
-Die Area Calculation from `floorplan.def`
-Unit Distance:
-1000 units = 1 micron
+   Die Dimensions (in Unit Distance):
+ - Die Width  = 660685 − 0 = **660685 units**
+ - Die Height = 671405 − 0 = **671405 units**
 
- Die Dimensions (in Unit Distance):
-- Die Width  = 660685 − 0 = **660685 units**
-- Die Height = 671405 − 0 = **671405 units**
+   Convert to Microns:
+   Die Width (µm)  = 660685 / 1000 = **660.685 µm**
+   Die Height (µm) =  671405 / 1000 = **671.405 µm**
 
-Convert to Microns:
-Die Width (µm)  =  
-660685 / 1000 = **660.685 µm**
-Die Height (µm) =  671405 / 1000 = **671.405 µm**
-
-Die Area (in Square Microns):
-Die Area = Width × Height  
-      = 660.685 × 671.405  
-      = **443,587.212425 µm²**
+   Die Area (in Square Microns):
+   Die Area = Width × Height = 660.685 × 671.405  
+                            = **443,587.212425 µm²**
       
 3. Load generated floorplan def in magic tool and explore the floorplan.
 
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/magic1.png)
 
-Equidistant placement of ports
+  Equidistant placement of ports
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equdistance.png)
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equidistance2.png)
 
-Port layer as set through config.tcl
+  Port layer as set through config.tcl
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/1metal.png)
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/2metal.png)
 
-Unplaced standard cells at the origin
+  Unplaced standard cells at the origin
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell.png)
 
 4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
@@ -102,14 +99,11 @@ Unplaced standard cells at the origin
 5. Load generated placement def in magic tool and explore the placement.
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementcomand.png)
 
-Screenshots of floorplan def in magic
+  Screenshots of floorplan def in magic
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementlayout.png)
 
-Standard cells legally placed
+  Standard cells legally placed
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell%20placed.png)
-
-
-
 
 
 
