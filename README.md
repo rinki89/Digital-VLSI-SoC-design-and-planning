@@ -25,13 +25,18 @@ Screenshots of synthesis statistics report file with required values highlighted
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flop%20ratio.png)
 
 ## Synthesis Statistics
+- **Total number of cells** = 14876  
+- **Number of flip-flops (sky130_fd_sc_hd__dfxtp_2)** = 1613
+
 **Flop Ratio**  
 Flop Ratio = 1613 / 14876 = 0.108429685
+
 **Percentage of DFFs**  
 Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
 
-## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
 
 ### 🔬 Theory
 
@@ -46,7 +51,7 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 - ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
 - ✅ Load the generated placement DEF file in Magic and explore the placement.
 1. Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
-Commands to invoke the OpenLANE flow and perform floorplan
+--Commands to invoke the OpenLANE flow and perform floorplan
 
 ## 📘 Day 3 - Design library cell using Magic Layout and ngspice characterization 
 ## 📘 Day 4 - Pre-layout timing analysis and importance of good clock tree 
