@@ -107,8 +107,113 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
 
 ## 📘 Session 3 - Design library cell using Magic Layout and ngspice characterization 
+
+### 🔬 Theory
+
+#### Tasks:
+- ✅ Clone the GitHub repository that contains the custom inverter standard cell design created using the OpenLANE flow.
+- ✅ Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.
+- ✅ Perform SPICE netlist extraction of the inverter from within Magic.
+- ✅ Modify the extracted SPICE model file to prepare it for circuit simulation and analysis.
+- ✅ Run post-layout simulations using ngspice to verify the functionality of the inverter.
+- ✅ Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
+
+### ⚙️ Implementation :
+1. Clone the GitHub repository that contains the custom inverter standard cell design created using the OpenLANE flow.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/copy%20command.png)
+
+2. Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/inerter%20layout.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/nmos.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/pmos.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/gnd.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/pwr.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/drc%20error.png)
+   
+3. Perform SPICE netlist extraction of the inverter from within Magic.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/extract%20spice%20.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/spiceext%20.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/spice%20commond.png)
+   
+4. Modify the extracted SPICE model file to prepare it for circuit simulation and analysis.
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/ngspice%20commond.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot%20commond.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot.png)
+
+i)Rise transition time calculation
+  - 20% Screenshots
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25%20comond.png)
+
+  - 80% Screenshots
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
+
+ii) Fall transition time calculation
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
+
+iii) Rise Cell Delay Calculation
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25commond.png)
+
+iv)  Fall Cell Delay Calculation
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
+   
+6. Run post-layout simulations using ngspice to verify the functionality of the inverter.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/drc%20test%20comond.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/magiccrc1.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/magic%20crc2.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/poly.9.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/edit%20in%20sky1301.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/editin%20sky1302.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/drc%20checkin%20poly.png)
+
+7. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
+
+
+
+
+
+
+
+
+
 ## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
+
+### 🔬 Theory
+
+#### Tasks:
+
+### ⚙️ Implementation
+
+
 ## 📘 Session 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
+### 🔬 Theory
+
+#### Tasks:
+
+### ⚙️ Implementation
 
 
 
