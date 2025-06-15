@@ -6,12 +6,11 @@
 ### 🔬 Theory
 This section introduces the basics of open-source EDA tools, OpenLANE flow, and Sky130 PDK. It explains how open-source efforts enable VLSI enthusiasts and students to carry out industry-grade digital SoC implementation flows.
 
-### ⚙️ Implementation
-
 #### Tasks:
-
 - ✅ Run `picorv32a` design synthesis using OpenLANE flow and generate necessary outputs  
 - ✅ Calculate the Flop Ratio
+
+### ⚙️ Implementation
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
 
@@ -40,8 +39,6 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
 ### 🔬 Theory
 
-### ⚙️ Implementation
-
 #### Tasks:
    
 - ✅ Run the picorv32a design floorplanning using the OpenLANE flow, and generate the necessary output files.
@@ -50,7 +47,9 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 - ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
 - ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
 - ✅ Load the generated placement DEF file in Magic and explore the placement.
-  
+
+### ⚙️ Implementation
+
 1. Run `picorv32a` design floorplan using OpenLANE flow and generate necessary outputs.  
    Commands to invoke the OpenLANE flow and perform floorplan are as follows:
    
@@ -80,30 +79,30 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
       
 3. Load generated floorplan def in magic tool and explore the floorplan.
 
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/magic1.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/magic1.png)
 
-  Equidistant placement of ports
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equdistance.png)
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equidistance2.png)
+   Equidistant placement of ports
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equdistance.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equidistance2.png)
 
   Port layer as set through config.tcl
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/1metal.png)
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/2metal.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/1metal.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/2metal.png)
 
   Unplaced standard cells at the origin
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell.png)
 
 4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/runplacement.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/runplacement.png)
 
 5. Load generated placement def in magic tool and explore the placement.
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementcomand.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementcomand.png)
 
   Screenshots of floorplan def in magic
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementlayout.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementlayout.png)
 
   Standard cells legally placed
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell%20placed.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell%20placed.png)
 
 
 
