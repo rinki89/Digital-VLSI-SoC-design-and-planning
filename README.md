@@ -81,15 +81,15 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/magic1.png)
 
-  Equidistant placement of ports
+ - Equidistant placement of ports
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equdistance.png)
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equidistance2.png)
 
-  Port layer as set through config.tcl
+ - Port layer as set through config.tcl
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/1metal.png)
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/2metal.png)
 
-  Unplaced standard cells at the origin
+ - Unplaced standard cells at the origin
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell.png)
 
 4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
@@ -98,10 +98,10 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 5. Load generated placement def in magic tool and explore the placement.
   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementcomand.png)
 
-  Screenshots of floorplan def in magic
+ - Screenshots of floorplan def in magic
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementlayout.png)
 
-  Standard cells legally placed
+ - Standard cells legally placed
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell%20placed.png)
 
 
