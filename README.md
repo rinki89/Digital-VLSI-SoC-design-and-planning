@@ -1,7 +1,7 @@
 # Digital-VLSI-SoC-design-and-planning
 
 ## Contents
-## 📘 Day 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
+## 📘 Session 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
 
 ### 🔬 Theory
 This section introduces the basics of open-source EDA tools, OpenLANE flow, and Sky130 PDK. It explains how open-source efforts enable VLSI enthusiasts and students to carry out industry-grade digital SoC implementation flows.
@@ -80,11 +80,42 @@ Die Area (in Square Microns):
 Die Area = Width × Height  
       = 660.685 × 671.405  
       = **443,587.212425 µm²**
+      
+3. Load generated floorplan def in magic tool and explore the floorplan.
+
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/magic1.png)
+
+Equidistant placement of ports
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equdistance.png)
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/equidistance2.png)
+
+Port layer as set through config.tcl
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/1metal.png)
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/2metal.png)
+
+Unplaced standard cells at the origin
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell.png)
+
+4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/runplacement.png)
+
+5. Load generated placement def in magic tool and explore the placement.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementcomand.png)
+
+Screenshots of floorplan def in magic
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/placementlayout.png)
+
+Standard cells legally placed
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day2/standard%20cell%20placed.png)
 
 
-## 📘 Day 3 - Design library cell using Magic Layout and ngspice characterization 
-## 📘 Day 4 - Pre-layout timing analysis and importance of good clock tree 
-## 📘 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
+
+
+
+
+## 📘 Session 3 - Design library cell using Magic Layout and ngspice characterization 
+## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
+## 📘 Session 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
 
 
 
