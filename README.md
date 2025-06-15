@@ -14,7 +14,22 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 - ✅ Calculate the Flop Ratio
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
+
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flow%20.png)
+
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/synthesis.png)
+
+2. Calculate the flop ratio.
+Screenshots of synthesis statistics report file with required values highlighted
+
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flop%20ratio.png)
+
+## Synthesis Statistics
+**Flop Ratio**  
+Flop Ratio = 1613 / 14876 = 0.108429685
+**Percentage of DFFs**  
+Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
+
 
 ## 📘 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
 
