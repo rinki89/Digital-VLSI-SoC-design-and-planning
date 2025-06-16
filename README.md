@@ -169,10 +169,10 @@ ii) Fall transition time calculation
 iii) Rise Cell Delay Calculation
      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
 
-     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25commond.png)
+     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/bolb/main/Day3/50%25commond.png)
 
 iv)  Fall Cell Delay Calculation
-     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/drc%20test%20comond.png)
@@ -183,6 +183,7 @@ iv)  Fall Cell Delay Calculation
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/poly.9.png)
 
+   New commands inserted in sky130A.tech file to update drc
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/edit%20in%20sky1301.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/editin%20sky1302.png)
