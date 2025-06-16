@@ -14,14 +14,14 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
 
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flow%20.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flow%20.png)
 
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/synthesis.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/synthesis.png)
 
 2. Calculate the flop ratio.
 Screenshots of synthesis statistics report file with required values highlighted
 
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flop%20ratio.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day1/flop%20ratio.png)
 
 ## Synthesis Statistics
 - **Total number of cells** = 14876  
@@ -150,21 +150,21 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot.png)
 
-i)Rise transition time calculation
-  - 20% Screenshots
+  i)Rise transition time calculation
+    - 20% Screenshots
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25%20comond.png)
 
   - 80% Screenshots
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25.png)
+     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25.png)
 
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
+     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
 
 ii) Fall transition time calculation
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
 
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
 
 iii) Rise Cell Delay Calculation
      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
