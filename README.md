@@ -165,11 +165,11 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall20%25.png)  
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall80%25.png)  
 
-  iii) Rise Cell Delay Calculation  
+    iii) Rise Cell Delay Calculation  
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25.png)  
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25commond.png)  
 
-  iv) Fall Cell Delay Calculation  
+    iv) Fall Cell Delay Calculation  
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25fall.png)
 
    
