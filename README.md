@@ -162,17 +162,17 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
 
   ii) Fall transition time calculation
-      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
+       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
 
-      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
+       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
 
   iii) Rise Cell Delay Calculation
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
+        ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
 
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/bolb/main/Day3/50%25commond.png)
+        ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/bolb/main/Day3/50%25commond.png)
 
   iv)  Fall Cell Delay Calculation
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
+        ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/drc%20test%20comond.png)
