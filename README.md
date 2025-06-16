@@ -144,11 +144,11 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/spice%20commond.png)
 
 5. Run post-layout simulations using ngspice to verify the functionality of the inverter.
- ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/ngspice%20commond.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/ngspice%20commond.png)
 
-  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot%20commond.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot%20commond.png)
 
- ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot.png)
 
 i)Rise transition time calculation
   - 20% Screenshots
@@ -169,7 +169,7 @@ ii) Fall transition time calculation
 iii) Rise Cell Delay Calculation
      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
 
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25commond.png)
+     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25commond.png)
 
 iv)  Fall Cell Delay Calculation
      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
