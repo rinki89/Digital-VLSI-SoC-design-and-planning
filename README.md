@@ -150,11 +150,11 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/plot.png)
 
-   i)Rise transition time calculation
-    - 20% Screenshots
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25.png)
+  i)Rise transition time calculation
+  - 20% Screenshots
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25.png)
 
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25%20comond.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/20%25%20comond.png)
 
   - 80% Screenshots
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25.png)
@@ -162,14 +162,14 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
 
   ii) Fall transition time calculation
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall20%25.png)
 
-       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/cell%20fall80%25.png)
 
   iii) Rise Cell Delay Calculation
        ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25.png)
 
-      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/bolb/main/Day3/50%25commond.png)
+       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/bolb/main/Day3/50%25commond.png)
 
   iv)  Fall Cell Delay Calculation
        ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/50%25fall.png)
