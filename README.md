@@ -162,15 +162,15 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Day3/80%25commond.png)
 
     ii) Fall Transition Time Calculation  
-![cell fall 20%](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall20%25.png)  
-![cell fall 80%](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall80%25.png)  
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall20%25.png)  
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/cell%20fall80%25.png)  
 
-iii) Rise Cell Delay Calculation  
-![50%](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25.png)  
-![50% command](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25commond.png)  
+  iii) Rise Cell Delay Calculation  
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25.png)  
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25commond.png)  
 
-iv) Fall Cell Delay Calculation  
-![50% fall](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25fall.png)
+  iv) Fall Cell Delay Calculation  
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Day3/50%25fall.png)
 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
