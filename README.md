@@ -215,6 +215,8 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
      i) The input and output ports must be aligned at the intersection points of horizontal and vertical routing tracks.
     ii) The cell width must be an odd multiple of the horizontal track pitch.
     iii) The cell height must be an even multiple of the vertical track pitch.
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/tracks%20commond.png)
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/less%20tracks.png)
     
     Commands for tkcon window to set grid as tracks of locali layer
