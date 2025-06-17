@@ -189,29 +189,153 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
 
-
-
-
-
-
-
-
-
 ## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
 
 ### 🔬 Theory
 
 #### Tasks:
+- ✅ Fix up small DRC errors and verify the design is ready to be inserted into our flow.
+- ✅ Save the finalized layout with custom name and open it.  
+- ✅ Generate lef from the layout.  
+- ✅ Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.  
+- ✅ Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.  
+- ✅ Run openlane flow synthesis with newly inserted custom inverter cell.  
+- ✅ Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.  
+- ✅ Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.  
+- ✅ Do Post-Synthesis timing analysis with OpenSTA tool.  
+- ✅ Make timing ECO fixes to remove all violations.  
+- ✅ Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.  
+- ✅ Post-CTS OpenROAD timing analysis.  
+- ✅ Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
 
-### ⚙️ Implementation
+  ### ⚙️ Implementation
+  
+1. Fix up small DRC errors and verify the design is ready to be inserted into our flow.
+  - Conditions to Verify Before Proceeding with the Custom Standard Cell Layout:
+     i) The input and output ports must be aligned at the intersection points of horizontal and vertical routing tracks.
+    ii) The cell width must be an odd multiple of the horizontal track pitch.
+    iii) The cell height must be an even multiple of the vertical track pitch.
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/less%20tracks.png)
+    
+    Commands for tkcon window to set grid as tracks of locali layer
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid%20commond.png)
+    
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid.png)
+
+    Condition 1 verified
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/condition1.png)
+
+    Condition 2 verified
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/width.png)
+    Horizontal Track Pitch = 0.46 µm
+    Width of Standard Cell = 1.38 µm = 0.46 µm × 3 (i.e., 3 × horizontal track pitch)
+
+    Condition 3 verified
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/length.png)
+    Vertical Track Pitch = 0.34 µm
+    Height of Standard Cell = 2.72 µm = 0.34 µm × 8 (i.e., 8 × vertical track pitch)
+ 
+2. Save the finalized layout with custom name and open it.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/commond1.png)
+   
+3. Generate lef from the layout.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/leffile.png)
+   
+   Screenshot of newly created lef file
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/lef%20file.png)
+   
+4. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
+   Screenshot of commands run
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmdcopyof%20invfile.png)
+
+5. Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/configedit.png)
+   
+6. Run openlane flow synthesis with newly inserted custom inverter cell.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/docker.png)
+   
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/runsynthesis.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
+
+7. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+   
+   Noting down current design values generated before modifying parameters to improve timing
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/chiparea.png)
+
+   Commands to view and change parameters to improve timing and run synthesis
+   Screenshot of merged.lef in tmp directory with our custom inverter as macro
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/mergedfile.png)
+
+   
+
+   
+10. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+11. Do Post-Synthesis timing analysis with OpenSTA tool.
+12. Make timing ECO fixes to remove all violations.
+13. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
+14. Post-CTS OpenROAD timing analysis.
+15. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+
+
 
 
 ## 📘 Session 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
 ### 🔬 Theory
 
 #### Tasks:
-
+- ✅ Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
+- ✅ Perfrom detailed routing using TritonRoute.
+- ✅ Post-Route parasitic extraction using SPEF extractor.
+- ✅ Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
 ### ⚙️ Implementation
+1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
+   Commands to perform all necessary stages up until now
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/1.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/2.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/3.png)
+
+   Screenshots of PDN def
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/6.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/7.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/8.png)
+
+2. Perfrom detailed routing using TritonRoute and explore the routed layout.
+   Command to perform routing
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/9.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/10.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/11.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/12.png)
+
+   Commands to load routed def in magic in another terminal
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/13.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/14.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/15.png)
+
+   Screenshot of fast route guide present in openlane/designs/picorv32a/runs/26-03_08-45/tmp/routing directory
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/16.png)
+
+3. Post-Route parasitic extraction using SPEF extractor.
+   Commands for SPEF extraction using external tool
+   The next step involves post-routing STA analysis, which requires the extraction of parasitic effects (SPEF).Since OpenLANE does not have a SPEF extraction tool, this process needs to be done outside of OpenLANE.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-02-24.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-02-59.png)
+
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-43.png)
+   
+   This is the final generated layout.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-53.png)
+    
 
 
 
