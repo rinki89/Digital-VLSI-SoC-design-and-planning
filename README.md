@@ -70,7 +70,7 @@ Screenshots of synthesis statistics report file with required values highlighted
      Die Height (µm) = 671405 / 1000 = 671.405 µm</p>
     <p align="center">Die Area (in Square Microns):<br>
      Die Area = Width × Height = 660.685 × 671.405<br>
-                               = 443,587.212425 µm²</p>
+       = 443,587.212425 µm²</p>
       
 4. Load generated floorplan def in magic tool and explore the floorplan.
 
