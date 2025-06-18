@@ -207,6 +207,9 @@ __Synthesis Statistics__ :
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
+   Incorrectly implemented difftap.2 simple rule correction
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/incorect%20diff2.png)
+
 ##
 ## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
 
