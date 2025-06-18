@@ -24,15 +24,16 @@ Screenshots of synthesis statistics report file with required values highlighted
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
 
 ## Synthesis Statistics
-- **Total number of cells** = 14876  
-- **Number of flip-flops (sky130_fd_sc_hd__dfxtp_2)** = 1613
+<div align="center">
+<p><strong>Total number of cells</strong> = 14876</p>
+<p><strong>Number of flip-flops</strong> (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
 
-  **Flop Ratio**  
-  Flop Ratio = 1613 / 14876 = 0.108429685
+<p><strong>Flop Ratio</strong><br>
+Flop Ratio = 1613 / 14876 = 0.108429685</p>
 
-  **Percentage of DFFs**  
-  Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
-
+<p><strong>Percentage of DFFs</strong><br>
+Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
+</div>
 
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
 
