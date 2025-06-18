@@ -27,11 +27,11 @@ Screenshots of synthesis statistics report file with required values highlighted
 - **Total number of cells** = 14876  
 - **Number of flip-flops (sky130_fd_sc_hd__dfxtp_2)** = 1613
 
-**Flop Ratio**  
-Flop Ratio = 1613 / 14876 = 0.108429685
+  **Flop Ratio**  
+  Flop Ratio = 1613 / 14876 = 0.108429685
 
-**Percentage of DFFs**  
-Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
+  **Percentage of DFFs**  
+  Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
 
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
@@ -61,16 +61,16 @@ Percentage of DFFs = 0.108429685 × 100 = **10.84296854%**
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
    Die Area Calculation from `floorplan.def`
-   Unit Distance:
-   1000 units = 1 micron
+    Unit Distance:
+    1000 units = 1 micron
 
    Die Dimensions (in Unit Distance):
  - Die Width  = 660685 − 0 = **660685 units**
  - Die Height = 671405 − 0 = **671405 units**
 
    Convert to Microns:
-   Die Width (µm)  = 660685 / 1000 = **660.685 µm**
-   Die Height (µm) =  671405 / 1000 = **671.405 µm**
+    Die Width (µm)  = 660685 / 1000 = **660.685 µm**
+    Die Height (µm) =  671405 / 1000 = **671.405 µm**
 
    Die Area (in Square Microns):
    Die Area = Width × Height = 660.685 × 671.405  
