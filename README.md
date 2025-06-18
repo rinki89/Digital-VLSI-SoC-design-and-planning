@@ -64,17 +64,19 @@ Screenshots of synthesis statistics report file with required values highlighted
     Unit Distance:
     1000 units = 1 micron
 
-   Die Dimensions (in Unit Distance):
- - Die Width  = 660685 − 0 = **660685 units**
- - Die Height = 671405 − 0 = **671405 units**
+   <h2 align="center">📐 Die Dimensions and Area</h2>
+   <p align="center"><strong>Die Coordinates (in unit distance)</strong><br>
+      Width: <code>660685 units</code> &nbsp;|&nbsp; Height: <code>671405 units</code></p>
+      
+   <p align="center"><strong>Converted to Microns (µm)</strong><br>
+      Width = <code>660685 / 1000</code> = <strong>660.685 µm</strong><br>
+      Height = <code>671405 / 1000</code> = <strong>671.405 µm</strong></p>
 
-   Convert to Microns:
-    Die Width (µm)  = 660685 / 1000 = **660.685 µm**
-    Die Height (µm) =  671405 / 1000 = **671.405 µm**
-
-   Die Area (in Square Microns):
-   Die Area = Width × Height = 660.685 × 671.405  
-                            = **443,587.212425 µm²**
+  <p align="center"><strong>Die Area Calculation</strong><br>
+     Area = Width × Height<br>
+     = <code>660.685 µm × 671.405 µm</code><br>
+    = <strong>443,587.212 µm²</strong>
+    </p>
       
 3. Load generated floorplan def in magic tool and explore the floorplan.
 
