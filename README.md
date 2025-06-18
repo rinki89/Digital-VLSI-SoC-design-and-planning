@@ -149,8 +149,6 @@ Screenshots of synthesis statistics report file with required values highlighted
   - 20% Screenshots
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/20%25.png)
 
-      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/20%25%20comond.png)
-
   - 80% Screenshots
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25.png)
 
@@ -159,7 +157,7 @@ Screenshots of synthesis statistics report file with required values highlighted
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
        <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
-   
+                                                =2.24706 - 2.17976 = 0.0673 ns = 67.3 ps</p>         
 
     ii) Fall Transition Time Calculation
     
