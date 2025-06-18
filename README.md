@@ -61,18 +61,15 @@ Screenshots of synthesis statistics report file with required values highlighted
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
    Die Area Calculation from `floorplan.def`
-    <div align="center"> 
-       <p>1000 Unit Distance = 1 Micron</p>
-       <p>Die width in unit distance = 660685 − 0 = 660685</p>
-       <p>Die height in unit distance = 671405 − 0 = 671405</p>
-       
-<p>Distance in microns = Value in Unit Distance / 1000</p>
-<p>Die width in microns = 660685 / 1000 = 660.685 Microns</p>
-<p>Die height in microns = 671405 / 1000 = 671.405 Microns</p>
-
-<p>Area of die in microns = 660.685 × 671.405 = 443587.212425 Square Microns</p>
-
-</div>
+  - Unit Distance: 1000 units = 1 micron
+    Die Dimensions (in Unit Distance):
+    Die Width = 660685 − 0 = 660685 units
+    Die Height = 671405 − 0 = 671405 units
+  - Convert to Microns:
+    Die Width (µm) = 660685 / 1000 = 660.685 µm
+    Die Height (µm) = 671405 / 1000 = 671.405 µm
+    Die Area (in Square Microns): Die Area = Width × Height = 660.685 × 671.405
+                                                           = 443,587.212425 µm²
       
 4. Load generated floorplan def in magic tool and explore the floorplan.
 
