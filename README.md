@@ -25,14 +25,12 @@ Screenshots of synthesis statistics report file with required values highlighted
 
 ## Synthesis Statistics
 <div align="center">
-<p><strong>Total number of cells</strong> = 14876</p>
-<p><strong>Number of flip-flops</strong> (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
+<p>Total number of cells = 14876</p>
+<p>Number of flip-flops (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
 
-<p><strong>Flop Ratio</strong><br>
-Flop Ratio = 1613 / 14876 = 0.108429685</p>
+<p>Flop Ratio = 1613 / 14876 = 0.108429685</p>
 
-<p><strong>Percentage of DFFs</strong><br>
-Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
+<p>Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
 </div>
 
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
