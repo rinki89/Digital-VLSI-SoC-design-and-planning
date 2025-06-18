@@ -156,12 +156,11 @@ Screenshots of synthesis statistics report file with required values highlighted
 
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25commond.png)
 
-    <div align="center">
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
        <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
        <p> = 2.24638 − 2.18242 = 0.06396 ns = 63.96 ps</p>
-    </div>
+    
 
     ii) Fall Transition Time Calculation
     
