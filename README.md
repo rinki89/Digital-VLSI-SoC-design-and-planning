@@ -13,23 +13,6 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 ### ⚙️ Implementation
 
 1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
-   # Enter OpenLANE interactive mode
-    ./flow.tcl -interactive
-
-   # Load OpenLANE package
-   package require openlane 0.9
-
-   # Prepare the design
-   prep -design picorv32a
-
-   # Run synthesis
-   run_synthesis
-
-   # Exit OpenLANE
-   exit
-
-   # Exit Docker container
-    exit
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flow%20.png)
 
