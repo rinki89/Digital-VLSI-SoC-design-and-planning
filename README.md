@@ -19,19 +19,16 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/synthesis.png)
 
 3. Calculate the flop ratio.
-Screenshots of synthesis statistics report file with required values highlighted
+   Screenshots of synthesis statistics report file with required values highlighted
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
 
-## Synthesis Statistics
-<div align="center">
+Synthesis Statistics
 <p>Total number of cells = 14876</p>
 <p>Number of flip-flops (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
-
 <p>Flop Ratio = 1613 / 14876 = 0.108429685</p>
-
 <p>Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
-</div>
+
 
 ##
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
@@ -60,17 +57,18 @@ Screenshots of synthesis statistics report file with required values highlighted
    Below is a screenshot or snippet showing the relevant part of the `floorplan.def` file:
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
+   
    Die Area Calculation from `floorplan.def`
-   <p align="center">Unit Distance: 1000 units = 1 micron</p>
-   <p align="center">Die Dimensions (in Unit Distance):<br>
+   <p>Unit Distance: 1000 units = 1 micron</p>
+   <p>Die Dimensions (in Unit Distance):<br>
     Die Width = 660685 − 0 = 660685 units<br>
     Die Height = 671405 − 0 = 671405 units</p>
-    <p align="center">Convert to Microns:<br>
+    <p>Convert to Microns:<br>
      Die Width (µm) = 660685 / 1000 = 660.685 µm<br>
      Die Height (µm) = 671405 / 1000 = 671.405 µm</p>
-    <p align="center">Die Area (in Square Microns):<br>
+    <p>Die Area (in Square Microns):<br>
      Die Area = Width × Height = 660.685 × 671.405<br>
-       = 443,587.212425 µm²</p>
+              = 443,587.212425 µm²</p>
       
 4. Load generated floorplan def in magic tool and explore the floorplan.
 
@@ -78,10 +76,12 @@ Screenshots of synthesis statistics report file with required values highlighted
 
  - Equidistant placement of ports
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equdistance.png)
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equidistance2.png)
 
  - Port layer as set through config.tcl
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/1metal.png)
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/2metal.png)
 
  - Unplaced standard cells at the origin
