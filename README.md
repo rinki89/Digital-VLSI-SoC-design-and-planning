@@ -145,7 +145,7 @@ __Synthesis Statistics__ :
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot.png)
 
-  i)Rise transition time calculation
+  i)__Rise transition time calculation__
   - 20% Screenshots
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/20%25.png)
 
@@ -156,10 +156,10 @@ __Synthesis Statistics__ :
    
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
-       <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
+       <p>Rise transition time = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
                                                 =2.24706 - 2.17976 = 0.0673 ns = 67.3 ps</p>         
 
-    ii) Fall Transition Time Calculation
+    ii) __Fall Transition Time Calculation__
     
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/cell%20fall20%25.png)
     
@@ -167,26 +167,26 @@ __Synthesis Statistics__ :
     
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
-       <p><strong>Fall transition time</strong> = Time taken for output to fall to 20% − Time taken for output to fall to 80%</p>
+       <p>Fall transition time = Time taken for output to fall to 20% − Time taken for output to fall to 80%</p>
                                              <p>= 4.09375 − 4.05127 = 0.04248 ns = 42.48 ps</p>
     
-    iii) Rise Cell Delay Calculation
+    iii) __Rise Cell Delay Calculation__
     
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25.png)
     
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25commond.png)
 
      <p>50% of 3.3 V = 1.65 V</p>
-     <p><strong>Rise Cell Delay</strong> = Time taken for output to rise to 50% − Time taken for input to fall to 50%</p>
+     <p>Rise Cell Delay = Time taken for output to rise to 50% − Time taken for input to fall to 50%</p>
                                      <p> = 2.21208 − 2.1497 = 0.06238 ns = 62.38 ps</p>
    
 
-    iv) Fall Cell Delay Calculation
+    iv) __Fall Cell Delay Calculation__
     
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25fall.png)
    
       <p>50% of 3.3 V = 1.65 V</p>
-       <p><strong>Fall Cell Delay</strong> = Time taken for output to fall to 50% − Time taken for input to rise to 50%</p>
+       <p>Fall Cell Delay = Time taken for output to fall to 50% − Time taken for input to rise to 50%</p>
                                         <p>= 4.0763 − 4.05011 = 0.02619 ns = 26.19 ps</p>
 
 
