@@ -487,16 +487,15 @@ __Synthesis Statistics__ :
    This is the final generated layout.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-53.png)
 
-### ✍️ Acknowledgements
+   ### ✍️ Acknowledgements
+   **Kunal Ghosh**
+   Co-founder, VSD Corp. Pvt. Ltd.
 
-**Kunal Ghosh**  
-Co-founder, VSD Corp. Pvt. Ltd.
+   **Nickson P Jose**
+   Physical Design Engineer, Intel Corporation
 
-**Nickson P Jose**  
-Physical Design Engineer, Intel Corporation
-
-**R. Timothy Edwards**  
-Senior Vice President of Analog and Design, efabless Corporation
+   **R. Timothy Edwards**
+   Senior Vice President of Analog and Design, efabless Corporation
     
 
 
