@@ -12,7 +12,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 ### ⚙️ Implementation
 
-1. Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
+1. Run `picorv32a` design synthesis using OpenLANE flow and generate necessary outputs.
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flow%20.png)
 
@@ -33,6 +33,7 @@ Screenshots of synthesis statistics report file with required values highlighted
 <p>Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
 </div>
 
+##
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
 
 ### 🔬 Theory
