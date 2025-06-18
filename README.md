@@ -244,10 +244,10 @@ __Synthesis Statistics__ :
   ### ⚙️ Implementation
   
 1. Fix up small DRC errors and verify the design is ready to be inserted into our flow.
-  - Conditions to Verify Before Proceeding with the Custom Standard Cell Layout:
-     i) The input and output ports must be aligned at the intersection points of horizontal and vertical routing tracks.
-    ii) The cell width must be an odd multiple of the horizontal track pitch.
-    iii) The cell height must be an even multiple of the vertical track pitch.
+  - Conditions to Verify Before Proceeding with the Custom Standard Cell Layout:<br>
+     i) The input and output ports must be aligned at the intersection points of horizontal and vertical routing tracks.<br>
+    ii) The cell width must be an odd multiple of the horizontal track pitch.<br>
+    iii) The cell height must be an even multiple of the vertical track pitch.<br>
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/tracks%20commond.png)
     
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/less%20tracks.png)
@@ -262,12 +262,12 @@ __Synthesis Statistics__ :
 
     Condition 2 verified
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/width.png)
-    Horizontal Track Pitch = 0.46 µm
+    Horizontal Track Pitch = 0.46 µm<br>
     Width of Standard Cell = 1.38 µm = 0.46 µm × 3 (i.e., 3 × horizontal track pitch)
 
     Condition 3 verified
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/length.png)
-    Vertical Track Pitch = 0.34 µm
+    Vertical Track Pitch = 0.34 µm<br>
     Height of Standard Cell = 2.72 µm = 0.34 µm × 8 (i.e., 8 × vertical track pitch)
  
 2. Save the finalized layout with custom name and open it.
