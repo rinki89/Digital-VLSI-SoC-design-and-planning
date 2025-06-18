@@ -192,6 +192,8 @@ __Synthesis Statistics__ :
 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
+   Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20test%20comond.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magiccrc1.png)
@@ -255,6 +257,8 @@ __Synthesis Statistics__ :
     Commands for tkcon window to set grid as tracks of locali layer
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid%20commond.png)
     
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/after%20gridcomomd.png)
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid.png)
 
     Condition 1 verified
@@ -268,7 +272,7 @@ __Synthesis Statistics__ :
     Condition 3 verified
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/length.png)
     Vertical Track Pitch = 0.34 µm<br>
-    Height of Standard Cell = 2.72 µm = 0.34 µm × 8 (i.e., 8 × vertical track pitch)
+    Height of Standard Cell = 2.7 µm = 0.34 µm × 8 (i.e., 8 × vertical track pitch)
  
 2. Save the finalized layout with custom name and open it.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/commond1.png)
@@ -345,6 +349,9 @@ __Synthesis Statistics__ :
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/sta2.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/sta3.png)
+   
+   Since more fanout is causing more delay we can add parameter to reduce fanout and do synthesis again
+   Commands to include new lef and perform synthesis
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synth2.png)
 
@@ -353,7 +360,7 @@ __Synthesis Statistics__ :
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/presta22.png)
    
-10. Make timing ECO fixes to remove all violations.
+11. Make timing ECO fixes to remove all violations.
     OR gate of drive strength 2 is driving 4 fanouts
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or%20gate.png)
 
@@ -381,7 +388,7 @@ __Synthesis Statistics__ :
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or5.png)
 
     
-11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
+12. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
     Commands to write verilog
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/verilogcmnd.png)
 
@@ -392,7 +399,7 @@ __Synthesis Statistics__ :
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/ctsdone.png)
 
-12. Post-CTS OpenROAD timing analysis.
+13. Post-CTS OpenROAD timing analysis.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/openroad.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/check1.png)
@@ -401,7 +408,7 @@ __Synthesis Statistics__ :
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/3.png)
 
-13. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+14. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/5.png)
@@ -465,7 +472,7 @@ __Synthesis Statistics__ :
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/15.png)
 
-   Screenshot of fast route guide present in openlane/designs/picorv32a/runs/26-03_08-45/tmp/routing directory
+   Screenshot of fast route guide present in openlane/designs/picorv32a/runs/16-06_16-56/tmp/routing directory
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/16.png)
 
 3. Post-Route parasitic extraction using SPEF extractor.
