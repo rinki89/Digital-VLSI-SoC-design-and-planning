@@ -41,8 +41,8 @@ Screenshots of synthesis statistics report file with required values highlighted
 #### Tasks:
    
 - ✅ Run the picorv32a design floorplanning using the OpenLANE flow, and generate the necessary output files.
-- ✅ Calculate the die area in microns using the values from the generated floorplan DEF file:
--              Die Area=Die Width (µm)×Die Height (µm)
+- ✅ Calculate the die area in microns using the values from the generated floorplan DEF file:<br>
+               Die Area=Die Width (µm)×Die Height (µm)
 - ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
 - ✅ Run congestion-aware placement for the picorv32a design using the OpenLANE flow, and generate the necessary output files.
 - ✅ Load the generated placement DEF file in Magic and explore the placement.
@@ -100,7 +100,7 @@ Screenshots of synthesis statistics report file with required values highlighted
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/standard%20cell%20placed.png)
 
 
-
+##
 ## 📘 Session 3 - Design library cell using Magic Layout and ngspice characterization 
 
 ### 🔬 Theory
@@ -156,16 +156,44 @@ Screenshots of synthesis statistics report file with required values highlighted
 
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25commond.png)
 
-    ii) Fall Transition Time Calculation  
-     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/cell%20fall20%25.png)  
-     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/cell%20fall80%25.png)  
+    <div align="center">
+       <p>20% of output = 660 mV</p>
+       <p>80% of output = 2.64 V</p>
+       <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
+       <p> = 2.24638 − 2.18242 = 0.06396 ns = 63.96 ps</p>
+    </div>
 
-    iii) Rise Cell Delay Calculation  
-     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25.png)  
-     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25commond.png)  
+    ii) Fall Transition Time Calculation
+    
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/cell%20fall20%25.png)
+    
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/cell%20fall80%25.png)
+    <div align="center">
+       <p>20% of output = 660 mV</p>
+       <p>80% of output = 2.64 V</p>
+       <p><strong>Fall transition time</strong> = Time taken for output to fall to 20% − Time taken for output to fall to 80%</p>
+       <p>= 4.0955 − 4.0536 = 0.0419 ns = 41.9 ps</p>
+    </div>
 
-    iv) Fall Cell Delay Calculation  
+    iii) Rise Cell Delay Calculation
+    
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25.png)
+    
+     ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25commond.png)
+     <div align="center">
+     <p>50% of 3.3 V = 1.65 V</p>
+     <p><strong>Rise Cell Delay</strong> = Time taken for output to rise to 50% − Time taken for input to fall to 50%</p>
+     <p> = 2.21144 − 2.15008 = 0.06136 ns = 61.36 ps</p>
+     </div>
+
+    iv) Fall Cell Delay Calculation
+    
      ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/main/Pictures/Day3/50%25fall.png)
+    <div align="center">
+      <p>50% of 3.3 V = 1.65 V</p>
+       <p><strong>Fall Cell Delay</strong> = Time taken for output to fall to 50% − Time taken for input to rise to 50%</p>
+       <p>= 4.07 − 4.05 = 0.02 ns = 20 ps</p>
+    </div>
 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
@@ -184,7 +212,7 @@ Screenshots of synthesis statistics report file with required values highlighted
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
-
+##
 ## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
 
 ### 🔬 Theory
@@ -379,7 +407,7 @@ Screenshots of synthesis statistics report file with required values highlighted
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/12.png)
     
-
+##
 ## 📘 Session 5 - Final steps for RTL2GDS using tritonRoute and openSTA 
 ### 🔬 Theory
 
