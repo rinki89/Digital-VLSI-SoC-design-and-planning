@@ -159,7 +159,7 @@ Screenshots of synthesis statistics report file with required values highlighted
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
        <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
-       <p>= 2.24638 − 2.18242 = 0.06396 ns = 63.96 ps</p>
+                                             <p>= 2.24638 − 2.18242 = 0.06396 ns = 63.96 ps</p>
    
 
     ii) Fall Transition Time Calculation
@@ -171,7 +171,7 @@ Screenshots of synthesis statistics report file with required values highlighted
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
        <p><strong>Fall transition time</strong> = Time taken for output to fall to 20% − Time taken for output to fall to 80%</p>
-       <p>= 4.0955 − 4.0536 = 0.0419 ns = 41.9 ps</p>
+                                             <p>= 4.09375 − 4.05127 = 0.04248 ns = 42.48 ps</p>
     
     iii) Rise Cell Delay Calculation
     
@@ -181,7 +181,7 @@ Screenshots of synthesis statistics report file with required values highlighted
 
      <p>50% of 3.3 V = 1.65 V</p>
      <p><strong>Rise Cell Delay</strong> = Time taken for output to rise to 50% − Time taken for input to fall to 50%</p>
-     <p> = 2.21144 − 2.15008 = 0.06136 ns = 61.36 ps</p>
+                                     <p> = 2.21208 − 2.1497 = 0.06238 ns = 62.38 ps</p>
    
 
     iv) Fall Cell Delay Calculation
@@ -190,8 +190,8 @@ Screenshots of synthesis statistics report file with required values highlighted
    
       <p>50% of 3.3 V = 1.65 V</p>
        <p><strong>Fall Cell Delay</strong> = Time taken for output to fall to 50% − Time taken for input to rise to 50%</p>
-       <p>= 4.07 − 4.05 = 0.02 ns = 20 ps</p>
-  
+                                        <p>= 4.0763 − 4.05011 = 0.02619 ns = 26.19 ps</p>
+
 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
