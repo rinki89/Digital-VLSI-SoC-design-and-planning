@@ -23,7 +23,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
 
-Synthesis Statistics
+__Synthesis Statistics__ :
 <p>Total number of cells = 14876</p>
 <p>Number of flip-flops (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
 <p>Flop Ratio = 1613 / 14876 = 0.108429685</p>
@@ -58,7 +58,7 @@ Synthesis Statistics
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
    
-   Die Area Calculation from `floorplan.def`
+   __Die Area Calculation from `floorplan.def`__
    <p>Unit Distance: 1000 units = 1 micron</p>
    <p>Die Dimensions (in Unit Distance):<br>
     Die Width = 660685 − 0 = 660685 units<br>
