@@ -159,7 +159,6 @@ Screenshots of synthesis statistics report file with required values highlighted
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
        <p><strong>Rise transition time</strong> = Time taken for output to rise to 80% − Time taken for output to rise to 20%</p>
-                                             <p>= 2.24638 − 2.18242 = 0.06396 ns = 63.96 ps</p>
    
 
     ii) Fall Transition Time Calculation
