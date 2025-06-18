@@ -154,7 +154,7 @@ Screenshots of synthesis statistics report file with required values highlighted
   - 80% Screenshots
       ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25.png)
 
-      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25commond.png)
+      ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/80%25comnd.png)
    
        <p>20% of output = 660 mV</p>
        <p>80% of output = 2.64 V</p>
