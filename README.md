@@ -1,13 +1,12 @@
 # Digital-VLSI-SoC-design-and-planning
 
-## Contents
+## 📚 Table of Contents
 - [Session 1: Inception of Open-Source EDA, OpenLANE and Sky130 PDK](#session-1-inception-of-open-source-eda-openlane-and-sky130-pdk)
-- [Session 2: Good floorplan vs bad floorplan and introduction to library cells](#session-2-Good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
-- [Session 3: Standard Cell Design & Layout](#session-3-Design-library-cell-using-Magic-Layout-and-ngspice-characterization)
-- [Session 4: Timing Analysis & Clock Tree](#session-4-Pre-layout-timing-analysis-and-importance-of-good-clock-tree)
-- [Session 5: Routing & GDSII Export](#session-5-Final-steps-for-RTL2GDS-using-tritonRoute-and-openSTA)
-- [Acknowledgement](#acknowledgement)
-
+- [Session 2: Good floorplan vs bad floorplan and introduction to library cells](#session-2-good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+- [Session 3: Design library cell using Magic Layout and ngspice characterization](#session-3-design-library-cell-using-magic-layout-and-ngspice-characterization)
+- [Session 4: Pre-layout timing analysis and importance of good clock tree](#session-4-pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+- [Session 5: Final steps for RTL2GDS using tritonRoute and openSTA](#session-5-final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+- [Acknowledgements](#acknowledgements)
 
 #
 ## 📘 Session 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
