@@ -26,7 +26,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/synthesis.png)
 
-3. Calculate the flop ratio.
+3. Calculate the flop ratio.<br>
    Screenshots of synthesis statistics report file with required values highlighted
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
@@ -76,21 +76,23 @@ __Synthesis Statistics__ :
      Die Height (µm) = 671405 / 1000 = 671.405 µm</p>
     <p>Die Area (in Square Microns):<br>
      Die Area = Width × Height = 660.685 × 671.405<br>
-              = 443,587.212425 µm²</p>
+                               = 443,587.212425 µm²</p>
       
-3. Load generated floorplan def in magic tool and explore the floorplan.
+3. Load generated floorplan def in magic tool and explore the floorplan.<br>
    To see the actual layout after the flow, we have to open the magic file by adding the command magic-T/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/magic1.png)
 
- - Equidistant placement of ports
+ - Equidistant placement of ports.<br>
    To select an object, click on it and then press 's' on your keyboard — the object will be highlighted.To zoom in, click the object and press 'z' and To zoom out, use Shift + z.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equdistance.png)
+   In the above layout we can see that, input output pins are at equal distance.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equidistance2.png)
 
  - Port layer as set through config.tcl
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/1metal.png)
+  Launch the TkCon window and enter the command what to get detailed information about a specific pin. For instance, it shows that a particular pin is placed on Metal 3. Likewise, inspecting the vertical pins reveals they are located on Metal 2.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/2metal.png)
 
@@ -125,11 +127,16 @@ __Synthesis Statistics__ :
 
 ### ⚙️ Implementation :
 1. Clone the GitHub repository that contains the custom inverter standard cell design created using the OpenLANE flow.
+   To clone the repository, run the command 'git clone https://github.com/nickson-jose/vsdstdcelldesign' in the OpenLane terminal. This will create a folder named vsdstdcelldesign inside the OpenLane directory.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/copy%20command.png)
+   After cloning, copy the Magic tech file by running 'cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .'. Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
 
 2. Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.
+   Command to open custom inverter layout in magic 'magic -T sky130A.tech sky130_inv.mag &'.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/inerter%20layout.png)
 
+   Identification of NMOS and PMOS
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/nmos.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/pmos.png)
@@ -137,21 +144,26 @@ __Synthesis Statistics__ :
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/gnd.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/pwr.png)
+   The PMOS source connection to VDD (labeled as VPWR) has been verified, and the NMOS source connection to VSS (labeled as VGND) has also been confirmed.
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20error.png)
    
 3. Perform SPICE netlist extraction of the inverter from within Magic.
+     To perform SPICE extraction for the custom inverter layout in the Magic tkcon window, first run the command 'extract all' to generate the '.ext' file from the layout. Next, use 'ext2spice cthresh 0 rthresh 0' to enable parasitic extraction by setting both the capacitance and resistance thresholds to zero. Finally, run 'ext2spice' to convert the extracted data into a SPICE netlist.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/extract%20spice%20.png)
 
+   let's see what inside the spice file by "vim sky130_inv.spice".
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/spiceext%20.png)
    
 4. Modify the extracted SPICE model file to prepare it for circuit simulation and analysis.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/spice%20commond.png)
+   To set up the SPICE simulation, include the model files with .include ./libs/pshort.lib and .include ./libs/nshort.lib. Set VDD using VDD VPWR 0 3.3V and VSS accordingly. Define the input with Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns). Add the analysis commands: .tran 1n 20n, .control, run, .endc, and .end.
 
 5. Run post-layout simulations using ngspice to verify the functionality of the inverter.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/ngspice%20commond.png)
 
-    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot%20commond.png)
+    Now, ploting the graph here by command, plot y vs time a.
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot%20commond.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot.png)
 
@@ -201,22 +213,26 @@ __Synthesis Statistics__ :
 
 
    
-6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.
+6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.<br>
    Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
-
+   To extract the lab files, use tar xfz drc_tests.tgz, then navigate into the drc_tests folder. List all contents with 'ls -al'. 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20test%20comond.png)
 
+   To view the .magicrc file, use 'gvim .magicrc' this file configures Magic and points to the local tech file. To launch Magic with enhanced graphics, run 'magic -d XR' &.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magiccrc1.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magic%20crc2.png)
 
+   To launch Magic with enhanced graphics, run 'magic -d XR' &.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/poly.9.png)
+   Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 
    New commands inserted in sky130A.tech file to update drc
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20in%20sky1301.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/editin%20sky1302.png)
 
+   In the TkCon window, load the updated tech file with 'tech load sky130A.tech', run 'drc check' to recheck for errors, and use 'drc why' to view details of the violations.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
    Incorrectly implemented difftap.2 simple rule correction
@@ -224,11 +240,13 @@ __Synthesis Statistics__ :
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/1st%20challenge.png)
    
+   Now we will make some changes in sky130A.tech file which are as follows:
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20for%202nd%20chlng.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20for%202ndchlg%201.png)
 
    Commands to run in tkcon window
+   Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/error%20in%20nwell.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/last.png)
