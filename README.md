@@ -78,11 +78,13 @@ __Synthesis Statistics__ :
      Die Area = Width × Height = 660.685 × 671.405<br>
               = 443,587.212425 µm²</p>
       
-4. Load generated floorplan def in magic tool and explore the floorplan.
+3. Load generated floorplan def in magic tool and explore the floorplan.
+   To see the actual layout after the flow, we have to open the magic file by adding the command magic-T/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/magic1.png)
 
  - Equidistant placement of ports
+   To select an object, click on it and then press 's' on your keyboard — the object will be highlighted.To zoom in, click the object and press 'z' and To zoom out, use Shift + z.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equdistance.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equidistance2.png)
