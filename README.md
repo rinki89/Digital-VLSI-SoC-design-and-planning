@@ -1,12 +1,12 @@
 # Digital-VLSI-SoC-design-and-planning
 
 ## 📚 Table of Contents
-- [Session 1: Inception of Open-Source EDA, OpenLANE and Sky130 PDK](#session-1-inception-of-open-source-eda-openlane-and-sky130-pdk)
-- [Session 2: Good floorplan vs bad floorplan and introduction to library cells](#session-2-good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
-- [Session 3: Design library cell using Magic Layout and ngspice characterization](#session-3-design-library-cell-using-magic-layout-and-ngspice-characterization)
-- [Session 4: Pre-layout timing analysis and importance of good clock tree](#session-4-pre-layout-timing-analysis-and-importance-of-good-clock-tree)
-- [Session 5: Final steps for RTL2GDS using tritonRoute and openSTA](#session-5-final-steps-for-rtl2gds-using-tritonroute-and-opensta)
-- [Acknowledgements](#acknowledgements)
+- [Session 1: Inception of Open-Source EDA, OpenLANE and Sky130 PDK](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
+- [Session 2: Good floorplan vs bad floorplan and introduction to library cells](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+- [Session 3: Design library cell using Magic Layout and ngspice characterization](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
+- [Session 4: Pre-layout timing analysis and importance of good clock tree](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+- [Session 5: Final steps for RTL2GDS using tritonRoute and openSTA](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+- [Acknowledgements](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#%EF%B8%8F-acknowledgements)
 
 #
 ## 📘 Session 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
