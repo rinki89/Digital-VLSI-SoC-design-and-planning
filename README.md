@@ -1,41 +1,13 @@
 # Digital-VLSI-SoC-design-and-planning
 
 ## Contents
-## Day 1: Foundations
-- Introduction to open-source EDA tools: OpenLANE and Sky130 PDK
-- Basics of digital design: chips, packages, die, IPs, pads, core
-- Introduction to RISC-V architecture
-- Overview of ASIC design flow (RTL → GDSII)
-- Setup OpenLANE and run synthesis
-- Analyze synthesis results
+- [Session 1: Fundamentals & Synthesis](#session-1-fundamentals--synthesis)
+- [Session 2: Floorplanning & Placement](#session-2-floorplanning--placement)
+- [Session 3: Standard Cell Design & Layout](#session-3-standard-cell-design--layout)
+- [Session 4: Timing Analysis & Clock Tree](#session-4-timing-analysis--clock-tree)
+- [Session 5: Routing & GDSII Export](#session-5-routing--gdsii-export)
+- [Acknowledgement](#acknowledgement)
 
-## Day 2: Floorplanning & Placement
-- Floorplanning concepts: utilization, aspect ratio, pin & power planning
-- Run floorplan using OpenLANE and view in Magic
-- Standard cell placement and optimization
-- Introduction to cell design and characterization basics
-
-## Day 3: Layout & SPICE Simulation
-- CMOS inverter layout design using Magic
-- Run ngspice simulations and analyze switching behavior
-- Fix DRC errors and generate LEF files
-- Work with Sky130 layers and tech files
-
-## Day 4: Timing Analysis & Clock Tree
-- Pre-layout timing analysis using OpenSTA
-- Setup and hold timing, slack, jitter, and uncertainty
-- Include custom standard cells in synthesis
-- Run and verify clock tree synthesis using TritonCTS
-
-## Day 5: Routing & Final GDS
-- Routing using TritonRoute: global and detailed
-- Perform DRC checks and finalize power distribution network (PDN)
-- Post-route timing analysis with real clock
-- Finalize layout and export GDSII
-
----
-
-## Acknowledgement
 
 #
 ## 📘 Session 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
