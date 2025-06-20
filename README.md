@@ -20,7 +20,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 ### ⚙️ Implementation
 
-1. Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs.
+1. Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs.<br>
    Commands to invoke the OpenLANE flow and perform floorplan are as follows:<br>
 -  Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
    `cd ~/Desktop/work/tools/openlane_working_dir/openlane`<br>
@@ -62,7 +62,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 ### ⚙️ Implementation
 
-1. Run _picorv32a_ design floorplan using OpenLANE flow and generate necessary outputs.
+1. Run _picorv32a_ design floorplan using OpenLANE flow and generate necessary outputs.<br>
    After synthesis completes, proceed to floorplanning with commond `run_floorplan`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplan.png)
@@ -104,10 +104,10 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
  - Port layer as set through config.tcl
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/1metal.png)
-   
-  Launch the tkcon window and enter the command `what` to get detailed information about a specific pin. <br>
-  For instance, it shows that a particular pin is placed on Metal 3. Likewise, inspecting the vertical pins reveals they are located on Metal 2.
-   
+
+   Launch the tkcon window and enter the command `what` to get detailed information about a specific pin. <br>
+   For instance, it shows that a particular pin is placed on Metal 3. Likewise, inspecting the vertical pins reveals they are located on Metal 2.
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/2metal.png)
 
  - Unplaced standard cells at the origin
@@ -150,11 +150,11 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/copy%20command.png)
    
-   After cloning, copy the Magic tech file by running <br>`cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .`.<br>
+   After cloning, copy the Magic tech file by running <br>`cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .`<br>
    Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
 
 2. Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.<br>
-   Command to open custom inverter layout in magic <br> `magic -T sky130A.tech sky130_inv.mag & .` .
+   Command to open custom inverter layout in magic <br> `magic -T sky130A.tech sky130_inv.mag & .` 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/inerter%20layout.png)
 
@@ -290,9 +290,10 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20for%202ndchlg%201.png)
 
    Commands to run in tkcon window<br>
-   Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/error%20in%20nwell.png)
+
+   Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/last.png)
 
@@ -305,8 +306,8 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 - ✅ Fix up small DRC errors and verify the design is ready to be inserted into our flow.
 - ✅ Save the finalized layout with custom name and open it.  
 - ✅ Generate lef from the layout.  
-- ✅ Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.  
-- ✅ Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.  
+- ✅ Copy the newly generated lef and associated required lib files to _picorv32a_ design _src_ directory.  
+- ✅ Edit _config.tcl_ to change lib file and add the new extra lef into the openlane flow.  
 - ✅ Run openlane flow synthesis with newly inserted custom inverter cell.  
 - ✅ Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.  
 - ✅ Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.  
@@ -314,7 +315,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 - ✅ Make timing ECO fixes to remove all violations.  
 - ✅ Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.  
 - ✅ Post-CTS OpenROAD timing analysis.  
-- ✅ Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+- ✅ Explore post-CTS OpenROAD timing analysis by removing _sky130_fd_sc_hd__clkbuf_1_ cell from clock buffer list variable _CTS_CLK_BUFFER_LIST_.
 
   ### ⚙️ Implementation
   
@@ -323,63 +324,110 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
      i) The input and output ports must be aligned at the intersection points of horizontal and vertical routing tracks.<br>
     ii) The cell width must be an odd multiple of the horizontal track pitch.<br>
     iii) The cell height must be an even multiple of the vertical track pitch.<br>
+    
+    Change to the sky130 Directory by using commond <br>
+    `cd ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd` .
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/tracks%20commond.png)
+    
+    open the tracks.info file by commond `less tracks.info`.
     
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/less%20tracks.png)
     
     Commands for tkcon window to set grid as tracks of locali layer
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid%20commond.png)
     
+    Get Syntax for the grid Command by `help grid` <br>
+    Set Grid Values `grid 0.46um 0.34um 0.23um 0.17um` <br>
+    The values typically mean:0.46um – X grid spacing, 0.34um – Y grid spacing, 0.23um – Snap resolution, 0.17um – Search distance.
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/after%20gridcomomd.png)
     
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/grid.png)
 
-    Condition 1 verified
+  - Condition 1 verified
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/condition1.png)
 
-    Condition 2 verified
+  - Condition 2 verified
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/width.png)
+    
     Horizontal Track Pitch = 0.46 µm<br>
     Width of Standard Cell = 1.38 µm = 0.46 µm × 3 (i.e., 3 × horizontal track pitch)
 
-    Condition 3 verified
+  - Condition 3 verified
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/length.png)
+    
     Vertical Track Pitch = 0.34 µm<br>
     Height of Standard Cell = 2.7 µm = 0.34 µm × 8 (i.e., 8 × vertical track pitch)
  
 2. Save the finalized layout with custom name and open it.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/commond1.png)
    
 3. Generate lef from the layout.
+   in tkcon window run the command to extract the LEF file `lef write` .
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/leffile.png)
    
    Screenshot of newly created lef file
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/lef%20file.png)
    
 4. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
-   Screenshot of commands run
+   Screenshot of commands run<br>`cp sky130_vsdinv.lef ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/`
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmdcopyof%20invfile.png)
+
+   List and check whether it's copied<br>`ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/copyinsrc.png)
 
-5. Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
+5. Edit _config.tcl_ to change lib file and add the new extra lef into the openlane flow.
+  
+   `set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib<br>
+   set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib<br>
+   set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib<br>
+   set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib`<br>
+
+   set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/configedit.png)
    
 6. Run openlane flow synthesis with newly inserted custom inverter cell.
+  
+   Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
+   `cd ~/Desktop/work/tools/openlane_working_dir/openlane`<br>
+-  Once the alias is set up, simply run `docker` to start the OpenLANE Docker container.<br>
+-  you can launch OpenLANE in interactive mode by running `./flow.tcl -interactive` then load the required tcl package `package require openlane 0.9`. <br>
+-  Prepare the design environment for picorv32a `prep -design picorv32a`.<br>
+-  Adiitional commands to include newly added lef to openlane flow<br>
+   `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
+   `add_lefs -src $lefs`<br>
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/docker.png)
    
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/runsynthesis.png)
+- Now that the design is prepped run synthesis using command `run_synthesis`
+  
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/runsynthesis.png)
 
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
+  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
 
 7. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
    
    Noting down current design values generated before modifying parameters to improve timing
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/chiparea.png)
 
-   Commands to view and change parameters to improve timing and run synthesis
    Screenshot of merged.lef in tmp directory with our custom inverter as macro
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/mergedfile.png)
+
+   Commands to view and change parameters to improve timing and run synthesis
+-  Once again we have to prep design so as to update variables `prep -design picorv32a -tag 16-06_11-34 -overwrite`.<br>
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/1.png)
 
@@ -390,32 +438,48 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
 
 8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+   Alternative to run_floorplan Command in OpenLANE If you're encountering unexpected or unexplained errors while using the standard `run_floorplan` command.
+   Use the Following Commands Instead of `run_floorplan`:
+   `init_floorplan`
+   `place_io`
+   `tap_decap_or`
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/runflrplan.png)
 
+   Now we are ready to run placement `run_placement`
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/plcment.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/plcmentdone.png)
 
-   Commands to load placement def in magic in another terminal
+   Commands to load placement def in magic tool in another terminal <br>
+   `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/layout1.png)
 
    Screenshot of custom inverter inserted in placement def with proper abutment
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/vsdinv.png)
 
-   Command for tkcon window to view internal layers of cells
+   Command for tkcon window to view internal layers of cells `expand`
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/expand.png)
 
 9. Do Post-Synthesis timing analysis with OpenSTA tool.
+    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
 
-   Newly created pre_sta.conf for STA analysis in openlane directory
+   Newly created _pre_sta.conf_ for STA analysis in openlane directory
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/presta.png)
 
-   Newly created my_base.sdc for STA analysis in openlane/designs/picorv32a/src directory based on the file openlane/scripts/base.sdc
+   Newly created _my_base.sdc_ for STA analysis in _openlane/designs/picorv32a/src_ directory based on the file _openlane/scripts/base.sdc_
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/copy%20base.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/editmybase.png)
+
+   Command to invoke OpenSTA tool with script `sta pre_sta.conf`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/pre_sta1.png)
 
@@ -423,17 +487,28 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/sta3.png)
    
-   Since more fanout is causing more delay we can add parameter to reduce fanout and do synthesis again
+   Since more fanout is causing more delay we can add parameter to reduce fanout and do synthesis again<br>
    Commands to include new lef and perform synthesis
+-  Use the _prep_ command to initialize the environment for the _picorv32a design_. The _-tag_ creates a uniquely named run directory, and _-overwrite_ clears any previous run with the same tag.<br>
+   `prep -design picorv32a -tag 16-06_16-22 -overwrite`<br>
+-  Add Custom LEF Files<br>
+   `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
+   `add_lefs -src $lefs`<br>
+-  Enable synthesis sizing set<br> ::env(SYNTH_SIZING) 1`<br>
+-  Set maximum fanout <br>`set ::env(SYNTH_MAX_FANOUT) 4`<br>
+-  Check the current driving cell <br>`echo $::env(SYNTH_DRIVING_CELL)`<br>
+-  With the design prepped and parameters updated, initiate the synthesis step <br>`run_synthesis`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synth2.png)
 
-   Commands to run STA in another terminal
+   Commands to run STA in another terminal again by 
+   `sta pre_sta.conf`
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/presta21.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/presta22.png)
    
-11. Make timing ECO fixes to remove all violations.
+10. Make timing ECO fixes to remove all violations.
     OR gate of drive strength 2 is driving 4 fanouts
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or%20gate.png)
 
@@ -461,7 +536,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or5.png)
 
     
-12. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
+11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
     Commands to write verilog
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/verilogcmnd.png)
 
@@ -472,7 +547,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/ctsdone.png)
 
-13. Post-CTS OpenROAD timing analysis.
+12. Post-CTS OpenROAD timing analysis.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/openroad.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/check1.png)
@@ -481,7 +556,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/3.png)
 
-14. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+13. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/5.png)
