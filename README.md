@@ -27,15 +27,15 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/synthesis.png)
 
 3. Calculate the flop ratio.<br>
-   Screenshots of synthesis statistics report file with required values highlighted
+   Screenshots of synthesis statistics report file with required values.
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
 
-__Synthesis Statistics__ :
-<p>Total number of cells = 14876</p>
-<p>Number of flip-flops (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
-<p>Flop Ratio = 1613 / 14876 = 0.108429685</p>
-<p>Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
+   __Synthesis Statistics__ :
+   <p>Total number of cells = 14876</p>
+   <p>Number of flip-flops (sky130_fd_sc_hd__dfxtp_2) = 1613</p>
+   <p>Flop Ratio = 1613 / 14876 = 0.108429685</p>
+   <p>Percentage of DFFs = 0.108429685 × 100 = <strong>10.84296854%</strong></p>
 
 
 ##
@@ -45,7 +45,7 @@ __Synthesis Statistics__ :
 
 #### Tasks:
    
-- ✅ Run the picorv32a design floorplanning using the OpenLANE flow, and generate the necessary output files.
+- ✅ Run the `picorv32a` design floorplanning using the OpenLANE flow, and generate the necessary output files.
 - ✅ Calculate the die area in microns using the values from the generated floorplan DEF file:<br>
                Die Area=Die Width (µm)×Die Height (µm)
 - ✅ Load the generated floorplan DEF file in the Magic layout tool and explore the floorplan.
@@ -55,13 +55,15 @@ __Synthesis Statistics__ :
 ### ⚙️ Implementation
 
 1. Run `picorv32a` design floorplan using OpenLANE flow and generate necessary outputs.  
-   Commands to invoke the OpenLANE flow and perform floorplan are as follows:
-   
+   Commands to invoke the OpenLANE flow and perform floorplan are as follows:# Change directory to openlane flow directory
+   To begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
+   `cd ~/Desktop/work/tools/openlane_working_dir/openlane` Once the alias is set up, simply run `docker` to start the OpenLANE Docker container. you can launch OpenLANE in interactive mode by running:`./flow.tcl -interactive` then load the required Tcl package `package require openlane 0.9`. Prepare the design environment for 'picorv32a' `prep -design picorv32a` Once the design is prepped, you can begin first running synthesis `run_synthesis`. After synthesis completes, proceed to floorplanning with commond `run_floorplan`
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplan.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplanc.png)
 
-2. Calculate the die area in microns from the values in the floorplan DEF file.  
+3. Calculate the die area in microns from the values in the floorplan DEF file.  
    Below is a screenshot or snippet showing the relevant part of the `floorplan.def` file:
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
@@ -78,8 +80,8 @@ __Synthesis Statistics__ :
      Die Area = Width × Height = 660.685 × 671.405<br>
                                = 443,587.212425 µm²</p>
       
-3. Load generated floorplan def in magic tool and explore the floorplan.<br>
-   To see the actual layout after the flow, we have to open the magic file by adding the command magic-T/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
+4. Load generated floorplan def in magic tool and explore the floorplan.<br>
+   To see the actual layout after the flow, we have to open the magic file by adding the command `magic-T/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/magic1.png)
 
@@ -130,10 +132,10 @@ __Synthesis Statistics__ :
    To clone the repository, run the command 'git clone https://github.com/nickson-jose/vsdstdcelldesign' in the OpenLane terminal. This will create a folder named vsdstdcelldesign inside the OpenLane directory.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/copy%20command.png)
-   After cloning, copy the Magic tech file by running 'cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .'. Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
+   After cloning, copy the Magic tech file by running `cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .`. Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
 
 2. Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.
-   Command to open custom inverter layout in magic 'magic -T sky130A.tech sky130_inv.mag &'.
+   Command to open custom inverter layout in magic `magic -T sky130A.tech sky130_inv.mag &`.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/inerter%20layout.png)
 
    Identification of NMOS and PMOS
@@ -149,7 +151,7 @@ __Synthesis Statistics__ :
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20error.png)
    
 3. Perform SPICE netlist extraction of the inverter from within Magic.
-     To perform SPICE extraction for the custom inverter layout in the Magic tkcon window, first run the command 'extract all' to generate the '.ext' file from the layout. Next, use 'ext2spice cthresh 0 rthresh 0' to enable parasitic extraction by setting both the capacitance and resistance thresholds to zero. Finally, run 'ext2spice' to convert the extracted data into a SPICE netlist.
+     To perform SPICE extraction for the custom inverter layout in the Magic tkcon window, first run the command `extract all` to generate the '.ext' file from the layout. Next, use `ext2spice cthresh 0 rthresh 0` to enable parasitic extraction by setting both the capacitance and resistance thresholds to zero. Finally, run `ext2spice` to convert the extracted data into a SPICE netlist.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/extract%20spice%20.png)
 
    let's see what inside the spice file by "vim sky130_inv.spice".
@@ -214,16 +216,16 @@ __Synthesis Statistics__ :
 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.<br>
-   Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
-   To extract the lab files, use tar xfz drc_tests.tgz, then navigate into the drc_tests folder. List all contents with 'ls -al'. 
+   Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html <br>
+   To extract the lab files, use `tar xfz drc_tests.tgz`, then navigate into the drc_tests folder. List all contents with `ls -al`. 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20test%20comond.png)
 
-   To view the .magicrc file, use 'gvim .magicrc' this file configures Magic and points to the local tech file. To launch Magic with enhanced graphics, run 'magic -d XR' &.
+   To view the .magicrc file, use `gvim .magicrc` this file configures Magic and points to the local tech file. To launch Magic with enhanced graphics, run `magic -d XR` &.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magiccrc1.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magic%20crc2.png)
 
-   To launch Magic with enhanced graphics, run 'magic -d XR' &.
+   To launch Magic with enhanced graphics, run `magic -d XR` &.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/poly.9.png)
    Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 
@@ -232,7 +234,7 @@ __Synthesis Statistics__ :
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/editin%20sky1302.png)
 
-   In the TkCon window, load the updated tech file with 'tech load sky130A.tech', run 'drc check' to recheck for errors, and use 'drc why' to view details of the violations.
+   In the TkCon window, load the updated tech file with `tech load sky130A.tech`, run `drc check` to recheck for errors, and use `drc why` to view details of the violations.
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
    Incorrectly implemented difftap.2 simple rule correction
