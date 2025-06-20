@@ -21,14 +21,22 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 ### ⚙️ Implementation
 
 1. Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs.
-
+   Commands to invoke the OpenLANE flow and perform floorplan are as follows:<br>
+-  Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
+   `cd ~/Desktop/work/tools/openlane_working_dir/openlane`<br>
+-  Once the alias is set up, simply run `docker` to start the OpenLANE Docker container.<br>
+-  you can launch OpenLANE in interactive mode by running `./flow.tcl -interactive` then load the required tcl package `package require openlane 0.9`. <br>
+-  Prepare the design environment for picorv32a `prep -design picorv32a`.
+  
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flow%20.png)
 
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/synthesis.png)
+    Once the design is prepped, you can begin first running synthesis `run_synthesis`.
+    
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/synthesis.png)
 
-3. Calculate the flop ratio.<br>
+2. Calculate the flop ratio.<br>
    Screenshots of synthesis statistics report file with required values.
-
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/flop%20ratio.png)
 
    __Synthesis Statistics__ :
@@ -54,25 +62,19 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 ### ⚙️ Implementation
 
-1. Run _picorv32a_ design floorplan using OpenLANE flow and generate necessary outputs.  
-   Commands to invoke the OpenLANE flow and perform floorplan are as follows:<br>
--  Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
-   `cd ~/Desktop/work/tools/openlane_working_dir/openlane`<br>
--  Once the alias is set up, simply run `docker` to start the OpenLANE Docker container.<br>
--  you can launch OpenLANE in interactive mode by running `./flow.tcl -interactive` then load the required tcl package `package require openlane 0.9`. <br>
--  Prepare the design environment for picorv32a `prep -design picorv32a` Once the design is prepped, you can begin first running synthesis `run_synthesis`.<br>
--  After synthesis completes, proceed to floorplanning with commond `run_floorplan`
+1. Run _picorv32a_ design floorplan using OpenLANE flow and generate necessary outputs.
+   After synthesis completes, proceed to floorplanning with commond `run_floorplan`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplan.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplanc.png)
 
 2. Calculate the die area in microns from the values in the floorplan DEF file.  
-   Below is a screenshot or snippet showing the relevant part of the `floorplan.def` file:
-
+   Below is a screenshot or snippet showing the relevant part of the _floorplan.def_ file:
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/dia%20area%20.png)
    
-   __Die Area Calculation from `floorplan.def`__
+   __Die Area Calculation from _floorplan.def___
    <p>Unit Distance: 1000 units = 1 micron</p>
    <p>Die Dimensions (in Unit Distance):<br>
     Die Width = 660685 − 0 = 660685 units<br>
@@ -90,31 +92,42 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/magic1.png)
 
  - Equidistant placement of ports.<br>
-   To select an object, click on it and then press 's' on your keyboard — the object will be highlighted.To zoom in, click the object and press 'z' and To zoom out, use Shift + z.
+   To select an object, click on it and then press 's' on your keyboard the object will be highlighted. <br>
+   To zoom in, click the object and press 'z' and To zoom out, use Shift + z.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equdistance.png)
+   
    In the above layout we can see that, input output pins are at equal distance.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/equidistance2.png)
 
  - Port layer as set through config.tcl
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/1metal.png)
-  Launch the tkcon window and enter the command what to get detailed information about a specific pin. For instance, it shows that a particular pin is placed on Metal 3. Likewise, inspecting the vertical pins reveals they are located on Metal 2.
+   
+  Launch the tkcon window and enter the command `what` to get detailed information about a specific pin. <br>
+  For instance, it shows that a particular pin is placed on Metal 3. Likewise, inspecting the vertical pins reveals they are located on Metal 2.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/2metal.png)
 
  - Unplaced standard cells at the origin
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/standard%20cell.png)
 
-4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
+4. Run _picorv32a_ design congestion aware placement using OpenLANE flow and generate necessary outputs.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/runplacement.png)
 
 5. Load generated placement def in magic tool and explore the placement.
-  ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/placementcomand.png)
 
- - Screenshots of floorplan def in magic
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/placementcomand.png)
+
+ - Screenshots of _floorplan def_ in magic
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/placementlayout.png)
 
  - Standard cells legally placed
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/standard%20cell%20placed.png)
 
 
@@ -133,16 +146,20 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 ### ⚙️ Implementation :
 1. Clone the GitHub repository that contains the custom inverter standard cell design created using the OpenLANE flow.<br>
-   To clone the repository, run the command `git clone https://github.com/nickson-jose/vsdstdcelldesign` in the OpenLane terminal. This will create a folder named vsdstdcelldesign inside the OpenLane directory.
+   To clone the repository, run the command in the OpenLane terminal <br> `git clone https://github.com/nickson-jose/vsdstdcelldesign`<br> This will create a folder named vsdstdcelldesign inside the OpenLane directory.
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/copy%20command.png)
-   After cloning, copy the Magic tech file by running <br>`cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .`<br>. Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
+   
+   After cloning, copy the Magic tech file by running <br>`cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .`.<br>
+   Once these steps are completed, you will find the vsdstdcelldesign folder inside the OpenLane directory, along with the required sky130A.tech file.
 
 2. Open the custom inverter layout using the Magic VLSI tool and examine its structure and design.<br>
-   Command to open custom inverter layout in magic `magic -T sky130A.tech sky130_inv.mag & .` .
+   Command to open custom inverter layout in magic <br> `magic -T sky130A.tech sky130_inv.mag & .` .
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/inerter%20layout.png)
 
    Identification of NMOS and PMOS
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/nmos.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/pmos.png)
@@ -150,30 +167,37 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/gnd.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/pwr.png)
+   
    The PMOS source connection to VDD (labeled as VPWR) has been verified, and the NMOS source connection to VSS (labeled as VGND) has also been confirmed.
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20error.png)
    
-3. Perform SPICE netlist extraction of the inverter from within Magic.<br>
+4. Perform SPICE netlist extraction of the inverter from within Magic.<br>
      To perform SPICE extraction for the custom inverter layout in the Magic tkcon window, first run the command `extract all` to generate the '.ext' file from the layout.<br>
      Next, use `ext2spice cthresh 0 rthresh 0` to enable parasitic extraction by setting both the capacitance and resistance thresholds to zero.<br>
      Finally, run `ext2spice` to convert the extracted data into a SPICE netlist.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/extract%20spice%20.png)
 
    let's see what inside the spice file by commond `vim sky130_inv.spice`.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/spiceext%20.png)
    
-4. Modify the extracted SPICE model file to prepare it for circuit simulation and analysis.
+5. Modify the extracted SPICE model file to prepare it for circuit simulation and analysis.
+   
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/spice%20commond.png)
+   
    To set up the SPICE simulation, include the model files with _.include ./libs/pshort.lib_ and _.include ./libs/nshort.lib_.<br>
    Set VDD using VDD VPWR 0 3.3V and VSS accordingly.<br>
    Define the input with Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns). <br>
    Add the analysis commands: .tran 1n 20n, .control, run, .endc, and .end.
 
 6. Run post-layout simulations using ngspice to verify the functionality of the inverter.
+   
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/ngspice%20commond.png)
 
     Now, ploting the graph here by command, `plot y vs time a`.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot%20commond.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/plot.png)
@@ -226,40 +250,48 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
 6. Identify and resolve issues in the DRC (Design Rule Check) section of the older Magic technology file for the SkyWater process.<br>
    Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html <br>
-   To extract the lab files, use `tar xfz drc_tests.tgz`, then navigate into the drc_tests folder. List all contents with `ls -al`. 
+   To extract the lab files, use `tar xfz drc_tests.tgz`, then navigate into the drc_tests folder. List all contents with `ls -al`.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20test%20comond.png)
 
    To view the .magicrc file, use `gvim .magicrc` this file configures Magic and points to the local tech file.<br>
-   To launch Magic with enhanced graphics, run `magic -d XR` &.
+   To launch Magic with enhanced graphics, run `magic -d XR &.` .
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magiccrc1.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magic%20crc2.png)
 
-   To launch Magic with enhanced graphics, run `magic -d XR` &.
+   To launch Magic with enhanced graphics, run `magic -d XR &.` .
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/poly.9.png)
    Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 
    New commands inserted in _sky130A.tech_ file to update drc
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20in%20sky1301.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/editin%20sky1302.png)
 
    In the tkcon window, load the updated tech file with `tech load sky130A.tech` <br>
    then run `drc check` to recheck for errors, and use `drc why` to view details of the violations.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20checkin%20poly.png)
 
    Incorrectly implemented difftap.2 simple rule correction
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/incorect%20diff2.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/1st%20challenge.png)
    
    Now we will make some changes in _sky130A.tech_ file which are as follows:
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20for%202nd%20chlng.png)
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/edit%20for%202ndchlg%201.png)
 
    Commands to run in tkcon window<br>
    Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/error%20in%20nwell.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/last.png)
