@@ -56,12 +56,12 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 1. Run _picorv32a_ design floorplan using OpenLANE flow and generate necessary outputs.  
    Commands to invoke the OpenLANE flow and perform floorplan are as follows:<br>
-   Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
+-  Change directory to openlane flow directory to begin using the OpenLANE flow, first navigate to the OpenLANE working directory by running:
    `cd ~/Desktop/work/tools/openlane_working_dir/openlane`<br>
-   Once the alias is set up, simply run `docker` to start the OpenLANE Docker container.<br>
-   you can launch OpenLANE in interactive mode by running `./flow.tcl -interactive` then load the required tcl package `package require openlane 0.9`. <br>
-   Prepare the design environment for picorv32a `prep -design picorv32a` Once the design is prepped, you can begin first running synthesis `run_synthesis`.<br>
-   After synthesis completes, proceed to floorplanning with commond `run_floorplan`
+-  Once the alias is set up, simply run `docker` to start the OpenLANE Docker container.<br>
+-  you can launch OpenLANE in interactive mode by running `./flow.tcl -interactive` then load the required tcl package `package require openlane 0.9`. <br>
+-  Prepare the design environment for picorv32a `prep -design picorv32a` Once the design is prepped, you can begin first running synthesis `run_synthesis`.<br>
+-  After synthesis completes, proceed to floorplanning with commond `run_floorplan`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day2/floorplan.png)
    
