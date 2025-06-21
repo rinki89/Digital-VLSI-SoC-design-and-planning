@@ -578,7 +578,8 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     
 11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.<br>
-    Commands to write verilog :<br>
+
+    Commands to write verilog :
 -   Check the syntax and usage of the write_verilog command <br>`help write_verilog`<br>
 -   Overwrite the current synthesized netlist with the updated one <br>`write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-06_16-22/results/synthesis/picorv32a.synthesis.v`<br>
 -   Exit OpenSTA since timing analysis is complete `exit`
@@ -646,7 +647,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 -   Report clock skew for hold analysis <br>`report_clock_skew -hold`<br>
 -   Report clock skew for setup analysis <br>`report_clock_skew -setup`<br>
 -   Exit OpenROAD and return to OpenLANE <br>`exit`<br>
--   
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/5.png)
