@@ -188,9 +188,9 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/spice%20commond.png)
    
    To set up the SPICE simulation, include the model files with _.include ./libs/pshort.lib_ and _.include ./libs/nshort.lib_.<br>
-   Set VDD using VDD VPWR 0 3.3V and VSS accordingly.<br>
-   Define the input with Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns). <br>
-   Add the analysis commands: .tran 1n 20n, .control, run, .endc, and .end.
+   Set VDD using `VDD VPWR 0 3.3V` and VSS accordingly.<br>
+   Define the input with `Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns)`. <br>
+   Add the analysis commands: `.tran 1n 20n`, `.control`, `run`, `.endc`, and `.end`.
 
 6. Run post-layout simulations using ngspice to verify the functionality of the inverter.
    
@@ -254,9 +254,8 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/drc%20test%20comond.png)
 
-   To view the .magicrc file, use `gvim .magicrc` this file configures Magic and points to the local tech file.<br>
-   To launch Magic with enhanced graphics, run `magic -d XR &.` .
-   
+   To view the .magicrc file, use `gvim .magicrc` this file configures Magic and points to the local tech file.
+ 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magiccrc1.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/magic%20crc2.png)
@@ -340,7 +339,11 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
     
     Get Syntax for the grid Command by `help grid` <br>
     Set Grid Values `grid 0.46um 0.34um 0.23um 0.17um` <br>
-    The values typically mean:0.46um – X grid spacing, 0.34um – Y grid spacing, 0.23um – Snap resolution, 0.17um – Search distance.
+    The values typically mean:<br>
+    0.46um – X grid spacing <br>
+    0.34um – Y grid spacing <br>
+    0.23um – Snap resolution <br>
+    0.17um – Search distance
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/after%20gridcomomd.png)
     
@@ -434,14 +437,15 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/slack0.png)
 
    Comparing to previously noted run values area has increased and worst negative slack has become 0.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/areardus.png)
    
 
-8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.<br>
    Alternative to run_floorplan Command in OpenLANE If you're encountering unexpected or unexplained errors while using the standard `run_floorplan` command.
-   Use the Following Commands Instead of `run_floorplan`:
-   `init_floorplan`
-   `place_io`
+   Use the Following Commands Instead of `run_floorplan`:<br>
+   `init_floorplan`<br>
+   `place_io`<br>
    `tap_decap_or`
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/runflrplan.png)
@@ -467,6 +471,17 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
 9. Do Post-Synthesis timing analysis with OpenSTA tool.
     
+   With zero WNS in the improved run, we now analyze the initial synthesis run, which has multiple timing violations and was done without any optimization parameters serving as a baseline for comparison.<br>
+   To start, we navigate to the OpenLANE flow directory<br> `cd Desktop/work/tools/openlane_working_dir/openlane`.<br>
+   we enter the OpenLANE Docker environment simply by running `docker`.
+   Once inside the Docker container, we launch OpenLANE in interactive mode with `./flow.tcl -interactive`<br>
+   We then load the necessary OpenLANE package `package require openlane 0.9`<br>
+   After loading, we prepare the design environment for picorv32a, which sets up the required files and directories `prep -design picorv32a`<br>
+   If new LEF (Library Exchange Format) files were added to the design source directory, we include them using <br> `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
+   `add_lefs -src $lefs`<br>
+   To allow cell sizing during synthesis, we update the environment variable as follows `set ::env(SYNTH_SIZING) 1`<br>
+   Finally, we initiate the synthesis process with the following command `run_synthesis`
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
 
    Newly created _pre_sta.conf_ for STA analysis in openlane directory
@@ -494,7 +509,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 -  Add Custom LEF Files<br>
    `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
    `add_lefs -src $lefs`<br>
--  Enable synthesis sizing set<br> ::env(SYNTH_SIZING) 1`<br>
+-  Enable synthesis sizing<br> `set ::env(SYNTH_SIZING) 1`<br>
 -  Set maximum fanout <br>`set ::env(SYNTH_MAX_FANOUT) 4`<br>
 -  Check the current driving cell <br>`echo $::env(SYNTH_DRIVING_CELL)`<br>
 -  With the design prepped and parameters updated, initiate the synthesis step <br>`run_synthesis`
@@ -508,16 +523,29 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/presta22.png)
    
-10. Make timing ECO fixes to remove all violations.
-    OR gate of drive strength 2 is driving 4 fanouts
+10. Make timing ECO fixes to remove all violations.<br>
+    OR gate of drive strength 2 is driving 4 fanouts.<br>
+    To optimize timing in the design, we first analyze the net and then replace a specific cell with a higher drive-strength OR gate (sky130_fd_sc_hd__or3_4). The following commands are used in the OpenLANE interactive session:<br>
+-   Report all connections to a specific net (to understand its load and related cells)<br> `report_net -connections _11672_`<br>
+-   heck the syntax for the replace_cell command<br> `help replace_cell`<br>
+-   Replace a specific cell with a higher drive-strength OR gate (OR3 with drive strength 4)<br> `replace_cell _14510_ sky130_fd_sc_hd__or3_4`<br>
+-   Generate a custom timing report showing net capacitance, slew, and input pins<br> `report_checks -fields {net cap slew input_pins} -digits 4`<br>
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or%20gate.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmnd.png)
-
-    Commands to perform analysis and optimize timing by replacing with OR gate of drive strength 4
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/violation1.png)
 
+    Result - slack reduced
+
+    OR gate of drive strength 2 is driving 4 fanouts
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or2.png)
+
+-   Report all connections to the target net<br> `report_net -connections _11675_`
+-   Replace the identified cell with a higher drive-strength OR gate<br> `replace_cell _14514_ sky130_fd_sc_hd__or3_4`
+-   Generate a detailed custom timing report to evaluate the impact<br> `report_checks -fields {net cap slew input_pins} -digits 4`
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmnd2.png)
 
@@ -525,29 +553,73 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmnd3.png)
 
+    Commands to perform analysis and optimize timing by replacing with OR gate of drive strength 4<br>
+-   Report all connections to the target net <br>`report_net -connections _11668_`
+-   Replace the identified cell with a higher drive-strength OR gate<br> `replace_cell _14506_ sky130_fd_sc_hd__or4_4`
+-   Generate a detailed custom timing report to evaluate the impact<br> `report_checks -fields {net cap slew input_pins} -digits 4`
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or4.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmnd4.png)
 
+    Result - slack reduced
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/violation2.png)
 
-    Commands to verify instance _14506_ is replaced with sky130_fd_sc_hd__or4_4
+    Commands to verify instance _14506_ is replaced with sky130_fd_sc_hd__or4_4<br>
+    Generating custom timing report<br> `report_checks -from _29043_ -to _30440_ -through _14506_`<br>
     Screenshot of replaced instance
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or5.png)
 
+    We began the ECO fixes with a Worst Negative Slack (WNS) of -23.9000 ns and have successfully improved it to -22.6173 ns. This reflects a timing improvement of approximately 1.2827 ns through targeted optimizations.
+
     
-11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
-    Commands to write verilog
+11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.<br>
+    Commands to write verilog :<br>
+    Check the syntax and usage of the write_verilog command `help write_verilog`<br>
+    Overwrite the current synthesized netlist with the updated one <br>`write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-06_16-22/results/synthesis/picorv32a.synthesis.v`<br>
+    Exit OpenSTA since timing analysis is complete `exit`
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/verilogcmnd.png)
 
     Verified that the netlist is overwritten by checking that instance _14506_ is replaced with sky130_fd_sc_hd__or4_4
+    
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/_14506.png)
 
+    Although we confirmed the ECO-updated netlist is ready and can be used for PnR, we are now proceeding with the original clean design (with zero violations) to carry it forward through the backend flow. Below are the commands and steps to properly reload and process the design:<br>
+-   Re-prep the design to refresh environment variables and configurations <br>`prep -design picorv32a -tag 16-06_16-56 -overwrite`<br>
+-   Add any newly added LEF files (e.g., merged.lef) to the design <br>`set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br> `add_lefs -src $lefs`<br>
+-   Set synthesis strategy to use delay optimization strategy 3<br> `set ::env(SYNTH_STRATEGY) "DELAY 3"`<br>
+-   Enable synthesis cell sizing for better timing optimization<br> `set ::env(SYNTH_SIZING) 1`<br>
+-   Run synthesis on the clean design<br> `run_synthesis`<br>
+-   The following steps are normally executed as part of `run_floorplan`, but can be done individually if needed:<br>`init_floorplan`<br>`place_io`<br> `tap_decap_or`<br>
+-   Run placement <br>`run_placement`<br>
+-   Proceed to CTS after placement is complete <br>`run_cts`<br>
+-   If an error occurs related to clock tree synthesis (CTS), especially regarding missing libraries, clear the variable manually <br>`unset ::env(LIB_CTS)`
+  
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/ctscmnd.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/ctsdone.png)
 
-12. Post-CTS OpenROAD timing analysis.
+    Clock Tree Synthesis (CTS) is completed.
+
+12. Post-CTS OpenROAD timing analysis.<br>
+    To perform post-CTS timing analysis using OpenROAD's integrated OpenSTA, follow these steps:<br>
+-   Launch the OpenROAD tool <br>`openroad`<br>
+-   Load the merged LEF file containing layout information<br> `read_lef /openLANE_flow/designs/picorv32a/runs/16-06_16-56/tmp/merged.lef`<br>
+-   Load the post-CTS DEF file (physical layout)<br> `read_def /openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/cts/picorv32a.cts.def`<br>
+-   Save the current OpenROAD database<br> `write_db pico_cts.db`<br>
+-   Reload the database (if needed later)<br>`read_db pico_cts.db`<br>
+-   Read in the netlist generated after CTS <br>`read_verilog /openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/synthesis/picorv32a.synthesis_cts.v`<br>
+-   Read in the complete synthesized liberty file (timing library) <br>`read_liberty $::env(LIB_SYNTH_COMPLETE)`<br>
+-   Link the design with the loaded netlist and library<br>`link_design picorv32a`<br>
+-   Load the custom constraints file (SDC)<br> `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`<br>
+-   Mark all clocks as propagated (to include clock tree effects)<br> `set_propagated_clock [all_clocks]`<br>
+-   (Optional) Review syntax and usage of the timing report command <br>`help report_checks`<br>
+-   Generate a detailed custom timing report (with min/max delay paths)<br>`report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`<br>
+-   Exit OpenROAD and return to the OpenLANE flow<br> `exit`<br>
+
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/openroad.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/check1.png)
@@ -556,7 +628,23 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/3.png)
 
-13. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+13. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.<br>
+    This flow outlines the process of modifying the CTS clock buffer list, re-running Clock Tree Synthesis (CTS), and conducting accurate post-CTS timing analysis using OpenROAD’s integrated OpenSTA engine.<br>
+-   Launch OpenROAD <br>`openroad`<br>
+-   Read merged LEF (includes standard cells and macros) <br>`read_lef /openLANE_flow/designs/picorv32a/runs/16-06_16-56/tmp/merged.lef`<br>
+-   Read post-CTS DEF file (physical layout after updated clock tree)<br> `read_def /openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/cts/picorv32a.cts.def`<br>
+-   Save OpenROAD database<br> `write_db pico_cts1.db`<br>
+-   Reload existing DB if needed<br> `read_db pico_cts.db`<br>
+-   Read post-CTS Verilog netlist<br> `read_verilog /openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/synthesis/picorv32a.synthesis_cts.v`<br>
+-   Load the synthesized timing library<br> `read_liberty $::env(LIB_SYNTH_COMPLETE)`<br>
+-   Link design with the read netlist and libraries<br> `link_design picorv32a`<br>
+-   Read the design constraints file (SDC)<br> `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`<br>
+-   Set all clocks as propagated (includes clock tree effects) <br>`set_propagated_clock [all_clocks]`<br>
+-   Generate a detailed min/max timing report with key path metrics<br> `report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`<br>
+-   Report clock skew for hold analysis <br>`report_clock_skew -hold`<br>
+-   Report clock skew for setup analysis <br>`report_clock_skew -setup`<br>
+-   Exit OpenROAD and return to OpenLANE <br>`exit`<br>
+-   
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4.png)
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/5.png)
@@ -573,6 +661,11 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/11.png)
 
+    To modify the list of clock buffer cells used during Clock Tree Synthesis (CTS), the following commands are used:<br>
+ -  Check the current list of clock buffer cells used by CTS<br> `echo $::env(CTS_CLK_BUFFER_LIST)`<br>
+ -  Insert 'sky130_fd_sc_hd__clkbuf_1' at the beginning of the list<br> `set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]`<br>
+ -  Verify that the buffer has been successfully added <br>`echo $::env(CTS_CLK_BUFFER_LIST)`
+   
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/12.png)
     
 ##
@@ -588,15 +681,29 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
   
 ### ⚙️ Implementation
 
-1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
-   Commands to perform all necessary stages up until now
+1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.<br>
+   Commands to perform all necessary stages up until now:<br>
+-  To start, we navigate to the OpenLANE flow directory<br> `cd Desktop/work/tools/openlane_working_dir/openlane`.<br>
+-  we enter the OpenLANE Docker environment simply by running `docker`.
+-  Once inside the Docker container, we launch OpenLANE in interactive mode with <br>`./flow.tcl -interactive`<br>
+-  We then load the necessary OpenLANE package<br> `package require openlane 0.9`<br>
+-  After loading, we prepare the design environment for picorv32a, which sets up the required files and directories<br> `prep -design picorv32a -tag 16-06_16-56`<br>
+   If you see a message saying the tag already exists, there's no need to overwrite it unless changes were made. You can verify that the design is properly loaded by checking the current DEF file using `echo $::env(CURRENT_DEF)`.<br> If the path is correct, simply continue with the next design stages without running prep again.
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/1.png)
+
+   As we can see, if the `echo $::env(CURRENT_DEF)` command returns _/openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/cts/picorv32a.cts.def_, it indicates that the design is already at the post-CTS stage. So no need to rerun earlier steps like prep, synthesis, or placement. <br>You can proceed directly with the remaining flow stages, such as <br>`gen_pdn`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/2.png)
 
+  Since gen_pdn is complete, it means the power distribution network has been successfully generated.
+  
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/3.png)
 
+   Command to load the PDN def in magic tool <br> `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &` <br>
+
    Screenshots of PDN def
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/6.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/7.png)
@@ -604,28 +711,37 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/8.png)
 
 2. Perfrom detailed routing using TritonRoute and explore the routed layout.
-   Command to perform routing
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/9.png)
 
+   Command to perform routing <br>
+-  Check the current DEF file being used (should reflect the PDN or post-CTS stage) <br> `echo $::env(CURRENT_DEF)` <br>
+-  Check the routing strategy currently in use <br> `echo $::env(ROUTING_STRATEGY)` <br>
+-  Perform detailed routing using TritonRoute <br> `run_routing`
+  
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/10.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/11.png)
+   
+   If you've already prepared the _picorv32a design_ once before and want to run the prep command again, you need to add the _-overwrite_ option. This tells OpenLANE to reuse and update the existing run instead of showing an error. `prep -design picorv32a -tag 17-06_08-51` don’t need to use -overwrite because you're creating a new run directory. but when you using existing use -overwrite like `prep -design picorv32a -tag 16-06_16-56 overwrite`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/12.png)
 
-   Commands to load routed def in magic in another terminal
+   Command to load the routed def in magic tool <br> `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.def &` <br>
+
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/13.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/14.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/15.png)
 
-   Screenshot of fast route guide present in openlane/designs/picorv32a/runs/16-06_16-56/tmp/routing directory
+   Screenshot of fast route guide present in _openlane/designs/picorv32a/runs/16-06_16-56/tmp/routing_ directory.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/16.png)
 
-3. Post-Route parasitic extraction using SPEF extractor.
-   Commands for SPEF extraction using external tool
-   The next step involves post-routing STA analysis, which requires the extraction of parasitic effects (SPEF).Since OpenLANE does not have a SPEF extraction tool, this process needs to     be done outside of OpenLANE.
+3. Post-Route OpenSTA timing analysis with the extracted parasitics of the route. <br>
+   The next step involves post-routing STA analysis, which requires the extraction of parasitic effects (SPEF).Since OpenLANE does not have a SPEF extraction tool, this process needs to     be done outside of OpenLANE.The resulting .spef file can be located in the routing folder under the results folder.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-02-24.png)
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-02-59.png)
@@ -633,9 +749,12 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-43.png)
    
    This is the final generated layout.
+   
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-53.png)
 
    ### ✍️ Acknowledgements
+   I sincerely thank __Mr. Kunal Ghosh__ and __Mr. Nickson P. Jose__ for their expert guidance during the __DIGITAL VLSI SoC Design and Planning workshop__. Their insights into OpenLANE and physical chip design were invaluable and made the learning experience truly enriching.<br>
+   
    **Kunal Ghosh**<br>
    Co-founder, VSD Corp. Pvt. Ltd.
 
