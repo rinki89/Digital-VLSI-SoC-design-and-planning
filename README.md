@@ -263,6 +263,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    To launch Magic with enhanced graphics, run `magic -d XR &.` .
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/poly.9.png)
+   
    Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 
    New commands inserted in _sky130A.tech_ file to update drc
@@ -371,7 +372,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/commond1.png)
    
-3. Generate lef from the layout.
+3. Generate lef from the layout.<br>
    in tkcon window run the command to extract the LEF file `lef write` .
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/leffile.png)
@@ -380,7 +381,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/lef%20file.png)
    
-4. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
+4. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.<br>
    Screenshot of commands run<br>`cp sky130_vsdinv.lef ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/`
    
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/cmdcopyof%20invfile.png)
@@ -430,7 +431,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/mergedfile.png)
 
    Commands to view and change parameters to improve timing and run synthesis
--  Once again we have to prep design so as to update variables `prep -design picorv32a -tag 16-06_11-34 -overwrite`.<br>
+-  Once again we have to prep design so as to update variables<br> `prep -design picorv32a -tag 16-06_11-34 -overwrite`.<br>
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/1.png)
 
@@ -442,8 +443,8 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
    
 
 8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.<br>
-   Alternative to run_floorplan Command in OpenLANE If you're encountering unexpected or unexplained errors while using the standard `run_floorplan` command.
-   Use the Following Commands Instead of `run_floorplan`:<br>
+   Alternative to run_floorplan Command in OpenLANE If you're encountering unexpected or unexplained errors while using the standard `run_floorplan` command.<br>
+   Use the Following Commands Instead of run_floorplan:<br>
    `init_floorplan`<br>
    `place_io`<br>
    `tap_decap_or`
@@ -472,15 +473,15 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 9. Do Post-Synthesis timing analysis with OpenSTA tool.
     
    With zero WNS in the improved run, we now analyze the initial synthesis run, which has multiple timing violations and was done without any optimization parameters serving as a baseline for comparison.<br>
-   To start, we navigate to the OpenLANE flow directory<br> `cd Desktop/work/tools/openlane_working_dir/openlane`.<br>
-   we enter the OpenLANE Docker environment simply by running `docker`.
-   Once inside the Docker container, we launch OpenLANE in interactive mode with `./flow.tcl -interactive`<br>
-   We then load the necessary OpenLANE package `package require openlane 0.9`<br>
-   After loading, we prepare the design environment for picorv32a, which sets up the required files and directories `prep -design picorv32a`<br>
-   If new LEF (Library Exchange Format) files were added to the design source directory, we include them using <br> `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
+-  To start, we navigate to the OpenLANE flow directory<br> `cd Desktop/work/tools/openlane_working_dir/openlane`.<br>
+-  we enter the OpenLANE Docker environment simply by running `docker`.
+-  Once inside the Docker container, we launch OpenLANE in interactive mode with<br> `./flow.tcl -interactive`<br>
+-  We then load the necessary OpenLANE package<br> `package require openlane 0.9`<br>
+-  After loading, we prepare the design environment for picorv32a, which sets up the required files and directories<br> `prep -design picorv32a`<br>
+-  If new LEF (Library Exchange Format) files were added to the design source directory, we include them using <br> `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`<br>
    `add_lefs -src $lefs`<br>
-   To allow cell sizing during synthesis, we update the environment variable as follows `set ::env(SYNTH_SIZING) 1`<br>
-   Finally, we initiate the synthesis process with the following command `run_synthesis`
+-  To allow cell sizing during synthesis, we update the environment variable as follows <br>`set ::env(SYNTH_SIZING) 1`<br>
+-  Finally, we initiate the synthesis process with the following command<br> `run_synthesis`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/synthesis%20done.png)
 
@@ -568,6 +569,7 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 
     Commands to verify instance _14506_ is replaced with sky130_fd_sc_hd__or4_4<br>
     Generating custom timing report<br> `report_checks -from _29043_ -to _30440_ -through _14506_`<br>
+    
     Screenshot of replaced instance
     
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/or5.png)
@@ -577,9 +579,9 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
     
 11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.<br>
     Commands to write verilog :<br>
-    Check the syntax and usage of the write_verilog command `help write_verilog`<br>
-    Overwrite the current synthesized netlist with the updated one <br>`write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-06_16-22/results/synthesis/picorv32a.synthesis.v`<br>
-    Exit OpenSTA since timing analysis is complete `exit`
+-   Check the syntax and usage of the write_verilog command <br>`help write_verilog`<br>
+-   Overwrite the current synthesized netlist with the updated one <br>`write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-06_16-22/results/synthesis/picorv32a.synthesis.v`<br>
+-   Exit OpenSTA since timing analysis is complete `exit`
     
     ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/verilogcmnd.png)
 
@@ -688,27 +690,30 @@ This section introduces the basics of open-source EDA tools, OpenLANE flow, and 
 -  Once inside the Docker container, we launch OpenLANE in interactive mode with <br>`./flow.tcl -interactive`<br>
 -  We then load the necessary OpenLANE package<br> `package require openlane 0.9`<br>
 -  After loading, we prepare the design environment for picorv32a, which sets up the required files and directories<br> `prep -design picorv32a -tag 16-06_16-56`<br>
+
    If you see a message saying the tag already exists, there's no need to overwrite it unless changes were made. You can verify that the design is properly loaded by checking the current DEF file using `echo $::env(CURRENT_DEF)`.<br> If the path is correct, simply continue with the next design stages without running prep again.
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/1.png)
 
-   As we can see, if the `echo $::env(CURRENT_DEF)` command returns _/openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/cts/picorv32a.cts.def_, it indicates that the design is already at the post-CTS stage. So no need to rerun earlier steps like prep, synthesis, or placement. <br>You can proceed directly with the remaining flow stages, such as <br>`gen_pdn`
+   As we can see, if the `echo $::env(CURRENT_DEF)` command returns _/openLANE_flow/designs/picorv32a/runs/16-06_16-56/results/cts/picorv32a.cts.def_, it indicates that the design is already at the post-CTS stage. So no need to rerun earlier steps like prep, synthesis, or placement. <br>
+
+   You can proceed directly with the remaining flow stages, such as <br>`gen_pdn`
 
    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/2.png)
 
-  Since gen_pdn is complete, it means the power distribution network has been successfully generated.
+    Since gen_pdn is complete, it means the power distribution network has been successfully generated.
   
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/3.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/3.png)
 
-   Command to load the PDN def in magic tool <br> `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &` <br>
+    Command to load the PDN def in magic tool <br> `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &` <br>
 
-   Screenshots of PDN def
+    Screenshots of PDN def
 
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/6.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/6.png)
 
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/7.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/7.png)
 
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/8.png)
+    ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/8.png)
 
 2. Perfrom detailed routing using TritonRoute and explore the routed layout.
 
