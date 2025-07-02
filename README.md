@@ -16,7 +16,10 @@
 __Introduction to QFN-48 Package, chip, pads, core, die and IPs__ <br>
 An integrated circuit (IC)—also known as a microchip or chip—is a compact electronic device that houses numerous interconnected components such as transistors, resistors, and capacitors. These elements are fabricated onto a thin slice of semiconductor material, typically silicon. The chip itself is generally mounted at the center of a larger component known as a package. Electrical connections between the chip and the outer pads of the package are established using a technique called wire bonding, which employs fine wires to link internal pads to external contacts.<br>
 ![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/73721ed7a5c260d724223a785130fc5d072dbb1b/Pictures/Day1/1.png) <br>
+
 The diagram below represents a block-level overview of a Processor or System on Chip (SoC) and its various interfacing elements. It showcases the pin layout and demonstrates how peripherals like UART, I2C, and memory modules are connected to the SoC. Additionally, it highlights essential power and ground connections. In engineering terms, the combination of the processor core and its supporting components, encapsulated together, is referred to as a package. A widely used package type, especially in embedded systems like those found on Arduino boards, is the QFN-48 (Quad Flat No-leads, 48-pin) package, known for its compact design and efficient performance.
+![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/73721ed7a5c260d724223a785130fc5d072dbb1b/Pictures/Day1/2.png) <br>
+
 The chip itself consists of several key internal components that contribute to its overall functionality:
 - __Pads__: These are the electrical contact points on the chip that enable communication between the internal circuitry and the external package. Pads are strategically placed on the silicon surface to align precisely with the package leads, allowing signals to flow in and out of the chip during operation.
 - __Core__: This is the central processing section of the chip. It contains the essential digital logic elements—such as logic gates (AND, OR, XOR), multiplexers, and control circuits—that perform all computational tasks. The core acts as the brain of the chip, executing instructions and handling data processing.
@@ -24,11 +27,13 @@ The chip itself consists of several key internal components that contribute to i
 
 __Introduction to RISC-V__ <br>
 RISC-V is an open standard instruction set architecture (ISA) developed at the University of California, Berkeley, named after the fifth generation of RISC designs. Unlike proprietary ISAs, RISC-V is open-source and royalty-free, enabling widespread adoption across industry and academia. Many companies now offer RISC-V hardware, and it is supported by various open-source operating systems and software toolchains.
+![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/73721ed7a5c260d724223a785130fc5d072dbb1b/Pictures/Day1/3.png) <br>
+
 The base ISA uses 32-bit fixed-length instructions, with support for variable-length extensions using 16-bit parcels. It includes 32-bit, 64-bit, and a proposed 128-bit address space (the latter still under development). Internally, the chip connects to its package via bond wires, enabling communication with external pins.
 
 __From Software Applications to Hardware__ <br>
 In a computer system, application software interacts with system software, which serves as a bridge to the hardware chip. The system software includes layers like the operating system, compiler, and assembler. The operating system handles low-level tasks such as input/output operations and memory management. The compiler translates high-level code written in languages like C, C++, or Java into hardware-specific instructions. These instructions are then converted into binary code by the assembler. Finally, this binary code is sent to the hardware, which executes the instructions and produces the desired output. The instructions act as an abstract interface between the software and hardware.
-
+![image](https://raw.githubusercontent.com/rinki89/Digital-VLSI-SoC-design-and-planning/73721ed7a5c260d724223a785130fc5d072dbb1b/Pictures/Day1/4.png) <br>
 
 #### Tasks:
 - ✅ Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs  
