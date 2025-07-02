@@ -12,7 +12,8 @@
 ## 📘 Session 1 - Inception of Open-Source EDA, OpenLANE and Sky130 PDK 
 
 ### 🔬 Theory
-This section introduces the basics of open-source EDA tools, OpenLANE flow, and Sky130 PDK. It explains how open-source efforts enable VLSI enthusiasts and students to carry out industry-grade digital SoC implementation flows.
+__Introduction to QFN-48 Package, chip, pads, core, die and IPs__
+An integrated circuit (IC)—also known as a microchip or chip—is a compact electronic device that houses numerous interconnected components such as transistors, resistors, and capacitors. These elements are fabricated onto a thin slice of semiconductor material, typically silicon. The chip itself is generally mounted at the center of a larger component known as a package. Electrical connections between the chip and the outer pads of the package are established using a technique called wire bonding, which employs fine wires to link internal pads to external contacts.
 
 #### Tasks:
 - ✅ Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs  
