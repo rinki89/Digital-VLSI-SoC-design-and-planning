@@ -37,10 +37,39 @@ __From Software Applications to Hardware__ <br>
 In a computer system, application software interacts with system software, which serves as a bridge to the hardware chip. The system software includes layers like the operating system, compiler, and assembler. The operating system handles low-level tasks such as input/output operations and memory management. The compiler translates high-level code written in languages like C, C++, or Java into hardware-specific instructions. These instructions are then converted into binary code by the assembler. Finally, this binary code is sent to the hardware, which executes the instructions and produces the desired output. The instructions act as an abstract interface between the software and hardware. <br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/5.png)
 
-__Simplified RTL2GDS flow__ <br>
+__Simplified RTL2GDS flow__
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/6.png)
 
+Step 1: Synthesis
+The RTL design (written in HDL) is synthesized into a gate-level netlist using standard cell libraries (SCL). This netlist describes the logic in terms of gates and is functionally equivalent to the RTL. Standard cells have predefined layouts used for physical implementation.
 
+Step 2: Floorplanning & Power Planning
+Defines the silicon area and partitions the chip into functional blocks. I/O pads are placed, and core dimensions, pin locations, and row placements are defined.
+In power planning, multiple VDD and GND nets are distributed across the chip using horizontal and vertical metal stripes (power grid). Upper metal layers, being thicker, are used to minimize resistance and electromigration issues.
+
+Step 3: Placement
+Places cells from the gate-level netlist into predefined rows on the floorplan.
+Global Placement: Initially places cells considering timing and congestion.
+Detailed Placement: Finalizes cell positions for minimal area, routing feasibility, and better timing. Aims to reduce wirelength, via count, and power.
+
+Step 4: Clock Tree Synthesis (CTS)
+Distributes the clock signal to all sequential elements (e.g., flip-flops, registers) using structures like H-tree or X-tree. Goal is to minimize clock skew and latency. Tools use low-skew global routing resources for better performance.
+
+Step 5: Routing
+Connects all nets physically using metal layers:
+Global Routing: Plans high-level routing paths.
+Detailed Routing: Implements actual wire paths using routing grids. Uses divide-and-conquer to handle complexity.
+Special attention is given to clock and power/ground nets. For example, in sky130 PDK, 6 routing layers are used — starting with a local interconnect and followed by aluminum layers.
+
+Step 6: Sign-Off
+Final verification before manufacturing:
+Physical Verification: Includes Design Rule Checking (DRC) and Layout vs. Schematic (LVS) to ensure layout correctness.
+Timing Verification: Static Timing Analysis (STA) ensures that timing constraints are met across all paths.
+
+__Introduction to OpenLANE detailed ASIC design flow__
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/9.png?raw=true) <br>
+
+OpenLANE supports regression testing by running around 70 designs and comparing results to known baselines. Design for Test (DFT) steps—like scan insertion, ATPG, fault simulation, and compaction—are performed before physical implementation using OpenROAD. The flow includes floor/power planning, tap cell and decap insertion, placement, post-placement optimization, clock tree synthesis (CTS), and routing. Since steps like CTS and optimization modify the netlist, functional verification using Yosys LCE ensures no logic changes. Antenna rule violations are handled by adding fake antenna diodes during placement; if violations are detected after routing, fake diodes are replaced with real ones. Static Timing Analysis (STA) is done after RC extraction (DEF2SPEF) using OpenSTA to detect timing violations. Finally, physical verification includes DRC (using Magic) and LVS (using Magic and Netgen), along with SPICE extraction for further validation.
 
 #### Tasks:
 - ✅ Run _picorv32a_ design synthesis using OpenLANE flow and generate necessary outputs  
@@ -78,6 +107,11 @@ __Simplified RTL2GDS flow__ <br>
 ## 📘 Session 2 - Good floorplan vs bad floorplan and introduction to library cells
 
 ### 🔬 Theory
+__Utilization factor and aspect ratio__ <br>
+In this section, we will determine the width and height of the Core and Die, which is the initial step in the physical design process. We'll begin with a simple netlist consisting of two flip-flops connected by basic combinational logic. A netlist defines the connectivity of components in a circuit. To estimate the physical size, we rely on the dimensions of standard logic gates like AND and OR, as well as the flip-flops used.
+
+Assuming each standard cell, including the flip-flop, occupies an area of 1 unit * 1 unit, the area per cell is 1 square unit. Using this information and the netlist structure, we can now estimate the total area required for the design on the silicon wafer. Note that here we are only concerned with the area of the logic elements—not the interconnecting wires.
+
 
 #### Tasks:
    
