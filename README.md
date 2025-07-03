@@ -108,9 +108,19 @@ OpenLANE supports regression testing by running around 70 designs and comparing 
 
 ### 🔬 Theory
 __Utilization factor and aspect ratio__ <br>
-In this section, we will determine the width and height of the Core and Die, which is the initial step in the physical design process. We'll begin with a simple netlist consisting of two flip-flops connected by basic combinational logic. A netlist defines the connectivity of components in a circuit. To estimate the physical size, we rely on the dimensions of standard logic gates like AND and OR, as well as the flip-flops used.
+In this section, we will determine the width and height of the Core and Die, which is the initial step in the physical design process. We'll begin with a simple netlist consisting of two flip-flops connected by basic combinational logic. A netlist defines the connectivity of components in a circuit. To estimate the physical size, we rely on the dimensions of standard logic gates like AND and OR, as well as the flip-flops used.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/10.png?raw=true) <br>
 
-Assuming each standard cell, including the flip-flop, occupies an area of 1 unit * 1 unit, the area per cell is 1 square unit. Using this information and the netlist structure, we can now estimate the total area required for the design on the silicon wafer. Note that here we are only concerned with the area of the logic elements—not the interconnecting wires.
+Assuming each standard cell, including the flip-flop, occupies an area of 1 unit * 1 unit, the area per cell is 1 square unit. Using this information and the netlist structure, we can now estimate the total area required for the design on the silicon wafer. Note that here we are only concerned with the area of the logic elements—not the interconnecting wires.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/11.png)<br>
+
+A die is a small, square or rectangular piece of semiconductor material—usually silicon—on which the actual circuit of a chip is fabricated. It is cut from a larger silicon wafer during the manufacturing process. Within the die, various functional sections of the chip are implemented, including one or more cores. A core is the section of the die that contains the primary logic and processing units of the design. It is where the essential computational tasks are executed, such as arithmetic operations, instruction handling, and data processing. In modern chips, especially processors, multiple cores may exist on a single die to enable parallel processing and enhance performance.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/12.png)
+the concept of the utilization factor, which is defined as:
+
+Utilization Factor
+​
+
 
 
 #### Tasks:
