@@ -206,7 +206,7 @@ Lets take another example for a square chip wth dimensions 4*4 sq units. We will
 ## 📘 Session 3 - Design library cell using Magic Layout and ngspice characterization 
 
 ### 🔬 Theory
-__SPICE deck creation for CMOS inverter__<br>
+__SPICE deck creation for CMOS inverter__ <br>
 VTC- SPICE simulations:-Here first part is to create SPICE deck, it's the connectivity information about the netlist so basically it's a netlist.It has input that are provided to the simulation and the deck points which will take the output.<br>
 Component connectivity:- In this we need to define the connectivity of the substrate pin. Substrate pin tunes the threshold voltage of the PMOS and NMOS.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-1.png)<br>
@@ -230,7 +230,7 @@ __SPICE simulation lab for CMOS inverter__ <br>
 Till now we have described the connectivity information about CMOS inverter now we will describe the other components connnectivity information like load capacitor, source. Let's seee the connectivity of output load capacitor.
 It is connected between out and the node 0. And it's value is 10ff. Supply voltage(Vdd) which is connected between Vdd and node 0 and value of it is 2.5 , Similarly we have input voltage which is connected between Vin and node 0 and its value is 2.5.
 Now we have to give the simulation commands in which we are swiping the Vin from 0 to 2.5 with the stepsize of 0.05. Because we want Vout while changing the Vin.
-Final step is to model files. It has the complete description about NMOS and PMOS.
+Final step is to model files. It has the complete description about NMOS and PMOS. <br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-6.png)<br>
 
 Now we will do the SPICE simulation for the particular values. And will get the graph.
@@ -244,19 +244,19 @@ The difference between these two graphs is that in the second graph the transfer
 __Switching Threshold Vm__ <br>
 Both models, despite having different transistor widths, serve their own specific applications. When we compare the waveforms of these models, we observe that their shapes remain consistent regardless of the voltage levels. This consistency demonstrates the robustness of CMOS technology. Specifically, when the input voltage (Vin) is low, the output is high, and when Vin is high, the output becomes low. This fundamental behavior is preserved across CMOS inverters with varying NMOS and PMOS sizes, which is a key reason why CMOS logic is so widely used in gate design.
 
-One important parameter that reflects the robustness of a CMOS inverter is the switching threshold (Vm) the point at which the input voltage equals the output voltage (Vin = Vout). This threshold defines the exact moment the inverter transitions between logic levels.
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-9png)<br>
+One important parameter that reflects the robustness of a CMOS inverter is the switching threshold (Vm) the point at which the input voltage equals the output voltage (Vin = Vout). This threshold defines the exact moment the inverter transitions between logic levels.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-9.png)<br>
 
 In this figure, we can see that at Vm~0.9v, Vin=Vout. This point is very critical point for the CMOS because at this point there is chance that both PMOS and NMOS are turned on. If both are turned on then there are high chances of leakage current(Means current flow direcly from power to ground).
-By comparing this both the graph we can understang the concept of switching thresold voltage.
+By comparing this both the graph we can understang the concept of switching thresold voltage.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-10.png)<br>
 
 In the graph below we can identify that the PMOS and NMOS are in which region. The direction of current flowing is different for NMOS nad PMOS.
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-11png)<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-11.png)<br>
 
 __Static and dynamic simulation of CMOS inverter__ <br>
 In a dynamic simulation, we analyze the rise and fall delays of a CMOS inverter and observe how these delays vary with the switching threshold (Vm). In this type of simulation, all parameters remain constant except for the input, which is a pulse signal. The simulation is carried out using the .tran (transient analysis) command.
-A Time vs. Voltage graph is generated, from which the rise time and fall time of the inverter can be measured.
+A Time vs. Voltage graph is generated, from which the rise time and fall time of the inverter can be measured.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-12.png)<br>
 
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-13.png)<br>
