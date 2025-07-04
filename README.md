@@ -236,11 +236,10 @@ Final step is to model files. It has the complete description about NMOS and PMO
 Now we will do the SPICE simulation for the particular values. And will get the graph.
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-7.png)<br>
 
-Now, doing other simulation in which we change the PMOS width to 3 times of NMOS width. and after diong the simulation, we get the graph like this shown below
+Now, doing other simulation in which we change the PMOS width to 3 times of NMOS width. and after diong the simulation, we get the graph like this shown below.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-8.png)<br>
 
 The difference between these two graphs is that in the second graph the transfer charactoristic is lies in the ecxact middle of the graph where in the first graph it is lies left from the middle of the graph.
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-9.png)<br>
 
 __Switching Threshold Vm__
 Both models, despite having different transistor widths, serve their own specific applications. When we compare the waveforms of these models, we observe that their shapes remain consistent regardless of the voltage levels. This consistency demonstrates the robustness of CMOS technology. Specifically, when the input voltage (Vin) is low, the output is high, and when Vin is high, the output becomes low. This fundamental behavior is preserved across CMOS inverters with varying NMOS and PMOS sizes, which is a key reason why CMOS logic is so widely used in gate design.
