@@ -251,7 +251,7 @@ In this figure, we can see that at Vm~0.9v, Vin=Vout. This point is very critica
 By comparing this both the graph we can understang the concept of switching thresold voltage.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-10.png)<br>
 
-In the graph below we can identify that the PMOS and NMOS are in which region. The direction of current flowing is different for NMOS nad PMOS.
+In the graph below we can identify that the PMOS and NMOS are in which region. The direction of current flowing is different for NMOS nad PMOS.<br>
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-11.png)<br>
 
 __Static and dynamic simulation of CMOS inverter__ <br>
@@ -426,6 +426,19 @@ A Time vs. Voltage graph is generated, from which the rise time and fall time of
 ## 📘 Session 4 - Pre-layout timing analysis and importance of good clock tree 
 
 ### 🔬 Theory
+__Introduction to Delay Tables__ <br>
+__Power-Aware Clock Tree Synthesis (CTS):__
+In power-aware CTS, logic gates like AND and OR can be used to control the propagation of the clock signal based on the enable input. For an AND gate, setting the enable pin to logic '1' allows the clock to pass through, while setting it to logic '0' blocks the clock. Conversely, in an OR gate, an enable of logic '0' allows the clock to propagate, and logic '1' blocks it.
+The key advantage of this blocking mechanism is significant power savings in the clock tree, as unnecessary clock activity can be suppressed during idle periods.
+![image]() <br>
+
+Consider a clock tree where a buffer at the first stage drives the load of two subsequent buffers. In a clock gating technique, we replace this initial buffer with an AND gate to control the clock propagation. By doing this, we aim to achieve clock gating functionality. In the following steps, we'll examine whether this substitution affects other characteristics of the circuit or if they remain unchanged.<br>
+![image]() <br>
+
+Before swaping the buffer with gate we have made some assumptions which are follows
+![image]() <br>
+
+
 
 #### Tasks:
 - ✅ Fix up small DRC errors and verify the design is ready to be inserted into our flow.
