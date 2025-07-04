@@ -40,28 +40,28 @@ In a computer system, application software interacts with system software, which
 __Simplified RTL2GDS flow__
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/6.png)
 
-Step 1: Synthesis
+__Step 1: Synthesis__:
 The RTL design (written in HDL) is synthesized into a gate-level netlist using standard cell libraries (SCL). This netlist describes the logic in terms of gates and is functionally equivalent to the RTL. Standard cells have predefined layouts used for physical implementation.
 
-Step 2: Floorplanning & Power Planning
+__Step 2: Floorplanning & Power Planning__:
 Defines the silicon area and partitions the chip into functional blocks. I/O pads are placed, and core dimensions, pin locations, and row placements are defined.
 In power planning, multiple VDD and GND nets are distributed across the chip using horizontal and vertical metal stripes (power grid). Upper metal layers, being thicker, are used to minimize resistance and electromigration issues.
 
-Step 3: Placement
+__Step 3: Placement__:
 Places cells from the gate-level netlist into predefined rows on the floorplan.
 Global Placement: Initially places cells considering timing and congestion.
 Detailed Placement: Finalizes cell positions for minimal area, routing feasibility, and better timing. Aims to reduce wirelength, via count, and power.
 
-Step 4: Clock Tree Synthesis (CTS)
+__Step 4: Clock Tree Synthesis (CTS)__:
 Distributes the clock signal to all sequential elements (e.g., flip-flops, registers) using structures like H-tree or X-tree. Goal is to minimize clock skew and latency. Tools use low-skew global routing resources for better performance.
 
-Step 5: Routing
+__Step 5: Routing__:
 Connects all nets physically using metal layers:
 Global Routing: Plans high-level routing paths.
 Detailed Routing: Implements actual wire paths using routing grids. Uses divide-and-conquer to handle complexity.
 Special attention is given to clock and power/ground nets. For example, in sky130 PDK, 6 routing layers are used — starting with a local interconnect and followed by aluminum layers.
 
-Step 6: Sign-Off
+__Step 6: Sign-Off__:
 Final verification before manufacturing:
 Physical Verification: Includes Design Rule Checking (DRC) and Layout vs. Schematic (LVS) to ensure layout correctness.
 Timing Verification: Static Timing Analysis (STA) ensures that timing constraints are met across all paths.
@@ -115,14 +115,13 @@ Assuming each standard cell, including the flip-flop, occupies an area of 1 unit
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/11.png)<br>
 
 A die is a small, square or rectangular piece of semiconductor material—usually silicon—on which the actual circuit of a chip is fabricated. It is cut from a larger silicon wafer during the manufacturing process. Within the die, various functional sections of the chip are implemented, including one or more cores. A core is the section of the die that contains the primary logic and processing units of the design. It is where the essential computational tasks are executed, such as arithmetic operations, instruction handling, and data processing. In modern chips, especially processors, multiple cores may exist on a single die to enable parallel processing and enhance performance.<br>
-![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/12.png)
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/12.png)<br>
 the concept of the utilization factor, which is defined as:
+Utilization Factor = Area occupied by netlist / Total area of the core
 
-Utilization Factor
+Lets take another example for a square chip wth dimensions 4*4 sq units. We will get utilization factor= 0.25 it means out of the whole chip area only 25% area is utilized by the netlistand 75% is available for additional cells which can be use for routing in which we will have layering. Aspect ratio we get = 1 it means chip is square in shape.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day1/14.png?raw=true) <br>
 ​
-
-
-
 #### Tasks:
    
 - ✅ Run the _picorv32a_ design floorplanning using the OpenLANE flow, and generate the necessary output files.
@@ -207,6 +206,60 @@ Utilization Factor
 ## 📘 Session 3 - Design library cell using Magic Layout and ngspice characterization 
 
 ### 🔬 Theory
+__SPICE deck creation for CMOS inverter__
+VTC- SPICE simulations:-Here first part is to create SPICE deck, it's the connectivity information about the netlist so basically it's a netlist.It has input that are provided to the simulation and the deck points which will take the output.<br>
+Component connectivity:- In this we need to define the connectivity of the substrate pin. Substrate pin tunes the threshold voltage of the PMOS and NMOS.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-1.png)<br>
+
+Component values:- Values for the PMOS nad NMOS. We have taken the same size of both PMOS and NMOS.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-2.png)<br>
+
+Identify the nodes:- Node mean the points between which there is a component.These nodes are required to define the netlist.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-3.png)<br>
+
+Name the nodes:- Now we wiil name these nodes as Vin, Vss, Vdd, out.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-4.png)<br>
+
+Now we will start writing the SPICE deck. It's written like shown below<br>
+- Drain- Gate- Source- Substrate
+- For M1 MOSFET drain is connected to out node, gate is connected to in node, PMOS transistor substrate and Source is connected to Vdd node.
+- For M2 MOSFET drain is connected to out node, gate is connected to in node, NMOS source and substrate are connected to 0.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-5.png)<br>
+
+__SPICE simulation lab for CMOS inverter__
+Till now we have described the connectivity information about CMOS inverter now we will describe the other components connnectivity information like load capacitor, source. Let's seee the connectivity of output load capacitor.
+It is connected between out and the node 0. And it's value is 10ff. Supply voltage(Vdd) which is connected between Vdd and node 0 and value of it is 2.5 , Similarly we have input voltage which is connected between Vin and node 0 and its value is 2.5.
+Now we have to give the simulation commands in which we are swiping the Vin from 0 to 2.5 with the stepsize of 0.05. Because we want Vout while changing the Vin.
+Final step is to model files. It has the complete description about NMOS and PMOS.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-6.png)<br>
+
+Now we will do the SPICE simulation for the particular values. And will get the graph.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-7.png)<br>
+
+Now, doing other simulation in which we change the PMOS width to 3 times of NMOS width. and after diong the simulation, we get the graph like this shown below
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-8.png)<br>
+
+The difference between these two graphs is that in the second graph the transfer charactoristic is lies in the ecxact middle of the graph where in the first graph it is lies left from the middle of the graph.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-9.png)<br>
+
+__Switching Threshold Vm__
+Both models, despite having different transistor widths, serve their own specific applications. When we compare the waveforms of these models, we observe that their shapes remain consistent regardless of the voltage levels. This consistency demonstrates the robustness of CMOS technology. Specifically, when the input voltage (Vin) is low, the output is high, and when Vin is high, the output becomes low. This fundamental behavior is preserved across CMOS inverters with varying NMOS and PMOS sizes, which is a key reason why CMOS logic is so widely used in gate design.
+
+One important parameter that reflects the robustness of a CMOS inverter is the switching threshold (Vm) the point at which the input voltage equals the output voltage (Vin = Vout). This threshold defines the exact moment the inverter transitions between logic levels.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-9png)<br>
+
+In this figure, we can see that at Vm~0.9v, Vin=Vout. This point is very critical point for the CMOS because at this point there is chance that both PMOS and NMOS are turned on. If both are turned on then there are high chances of leakage current(Means current flow direcly from power to ground).
+By comparing this both the graph we can understang the concept of switching thresold voltage.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-10.png)<br>
+
+In the graph below we can identify that the PMOS and NMOS are in which region. The direction of current flowing is different for NMOS nad PMOS.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-11png)<br>
+
+__Static and dynamic simulation of CMOS inverter__
+In a dynamic simulation, we analyze the rise and fall delays of a CMOS inverter and observe how these delays vary with the switching threshold (Vm). In this type of simulation, all parameters remain constant except for the input, which is a pulse signal. The simulation is carried out using the .tran (transient analysis) command.
+A Time vs. Voltage graph is generated, from which the rise time and fall time of the inverter can be measured.
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-12.png)<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day3/3-13.png)<br>
 
 #### Tasks:
 - ✅ Clone the GitHub repository that contains the custom inverter standard cell design created using the OpenLANE flow.
