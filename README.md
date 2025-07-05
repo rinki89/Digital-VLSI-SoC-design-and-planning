@@ -440,11 +440,11 @@ Before swaping the buffer with gate we have made some assumptions which are foll
 ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-3.png) <br>
 
 We are considering a design where:
-c1 = c2 = c3 = c4 = 25 fF
-Cbuf1 = Cbuf2 = 30 fF
-Total capacitance at node A = 60 fF
-Total capacitance at node B = 50 fF
-Total capacitance at node C = 50 fF
+- Assume c1 = c2 = c3 = c4 = 25 fF
+- Assume Cbuf1 = Cbuf2 = 30 fF
+- Total capacitance at node A => 60 fF
+- Total capacitance at node B => 50 fF
+- Total capacitance at node C => 50 fF
 
 __Observations:__
 The circuit has two levels of buffering.
