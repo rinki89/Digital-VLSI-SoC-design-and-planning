@@ -430,15 +430,47 @@ __Introduction to Delay Tables__ <br>
 __Power-Aware Clock Tree Synthesis (CTS):__
 In power-aware CTS, logic gates like AND and OR can be used to control the propagation of the clock signal based on the enable input. For an AND gate, setting the enable pin to logic '1' allows the clock to pass through, while setting it to logic '0' blocks the clock. Conversely, in an OR gate, an enable of logic '0' allows the clock to propagate, and logic '1' blocks it.
 The key advantage of this blocking mechanism is significant power savings in the clock tree, as unnecessary clock activity can be suppressed during idle periods.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-1.png) <br>
 
 Consider a clock tree where a buffer at the first stage drives the load of two subsequent buffers. In a clock gating technique, we replace this initial buffer with an AND gate to control the clock propagation. By doing this, we aim to achieve clock gating functionality. In the following steps, we'll examine whether this substitution affects other characteristics of the circuit or if they remain unchanged.<br>
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-2.png) <br>
 
 Before swaping the buffer with gate we have made some assumptions which are follows
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-3.png) <br>
 
+We are considering a design where:
+c1 = c2 = c3 = c4 = 25 fF
+Cbuf1 = Cbuf2 = 30 fF
+Total capacitance at node A = 60 fF
+Total capacitance at node B = 50 fF
+Total capacitance at node C = 50 fF
 
+__Observations:__
+The circuit has two levels of buffering.
+At each level, every buffer drives an equal capacitive load.
+Buffers at the same level are identical.
+
+However, due to the varying capacitive loads at the outputs of the buffers, the input transition times also change. This leads to variation in delay throughout the circuit, since delay depends on both the input transition and the output load.
+
+__Delay Table Generation:__
+To accurately capture these delay variations, we extract a single buffer from the design and characterize it separately. During characterization:
+We sweep the input transition time over a range (e.g., from 10 ps to 100 ps).
+Simultaneously, we vary the output load.
+For each combination of input transition and output capacitance, we measure the resulting delay. These delay values are then organized into a lookup table, known as a delay table, which can be used for accurate timing analysis during circuit design.<br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-4.png) <br>
+
+__Delay Table Usage – Part 1:__
+Let’s consider how delay tables are applied using a practical example. Suppose Buffer 1 has an input transition time of 40 ps and is driving an output capacitance of 60 fF. In this case, the corresponding delay value for the cell falls between two entries in the delay table, say between x9 and x10.
+When the exact values for a given input transition or output load are not explicitly available in the delay table, the delay is typically estimated using interpolation or extrapolation based on the surrounding data points. This allows us to approximate the delay within a reasonable range, ensuring accuracy even when the conditions don't exactly match the pre-characterized points.<BR>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day4/4-5.png) <br>
+
+__Delay Table Usage – Part 2:__
+Next, we move on to calculating the delay for Buffer 2, which will then allow us to determine the latency at the four clock end points.
+In this case, the input transition time is the same for both buffers. Let’s assume this transition is approximately 60 ps, and both buffers are driving a load of 50 fF. Based on this, the delay for each buffer corresponds to the entry y15 in the delay table. <br>
+So, the total delay from the input to the output path becomes:
+Total delay = x9' + y15
+This implies that the skew across all output points is zero, since all paths experience the same delay.
+However, if the load at each node is not identical, the delays will differ, resulting in non-zero skew at the outputs.<br>
 
 #### Tasks:
 - ✅ Fix up small DRC errors and verify the design is ready to be inserted into our flow.
