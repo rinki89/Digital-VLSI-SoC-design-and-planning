@@ -862,49 +862,49 @@ Given a source and a target point, the algorithm operates as follows:
 In the first step, it starts labeling the grid cells surrounding the source.
 Only the adjacent horizontal and vertical cells are considered for labeling — diagonal connections are not used.
 This step-by-step grid labeling continues outward until the target is reached, enabling the algorithm to identify the optimal path.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-1.png) <br>
 
 Now we will lable the grids to the next integer untill we reach to the target. In the example we reached the target after integer 9.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-2.png) <br>
 
 SO now there are so many ways to reach to target from source but we have to choose the best shortest possible way to reach the target.And we need to avoid the zig-zag way better to cghoose 'L' shape routing'
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-3.png) <br>
 
 Now take one more example for routing, and will follow the exact same step as follows in the above example.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-4.png) <br>
 
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-5.png) <br>
 
 __Design Rule Check__
 Before performing Design Rule Check (DRC), certain steps must be taken—this process is referred to as DRC cleaning.
 Let’s consider an example based on the previously discussed circuit. Suppose there are two parallel wires in the layout. According to design rules, there must be a minimum spacing maintained between any two wires. This ensures signal integrity and prevents issues such as crosstalk or short circuits.
 By adhering to these spacing rules and correcting any violations, we prepare the layout for a successful DRC.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-6.png) <br>
 
 Rule 1) Wire width:- Width of the wire should be minimum that derived from the optical wavelenth of lithography technique applied.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-7.png) <br>
 
 Rule 2) Wire Pitch:- The minimum pitch between two wire should be this much as shown in the figure below.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-8.png) <br>
 
 Rule 3) Wire Spacing:- The wire spacing between two wires should be as shown in the image below.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-9.png) <br>
 
 Let's take the other part for design rule check from the same example .
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-10.png) <br>
 
 Solution of this signal short problem is take one of the wire and put it on the other metal layer. usually upper metal is wider than the lower metal.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-11.png) <br>
 
 After this solution, we add two new DRC rules should be check.
 Rule 1) Via Width:- via width should be some minimum value.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-12.png) <br>
 
 Rule 2) Via Spacing:- Via spacing should be minimum value.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-13.png) <br>
 
 After routing and DRC the next step is Parasitic extraction. Resistance and capacitance present on every wire should be extracted and use for further process.
-![image]() <br>
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/5-14.png) <br>
 
 #### Tasks:
 
