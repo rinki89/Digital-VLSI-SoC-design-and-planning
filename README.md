@@ -6,6 +6,7 @@
 - [Session 3: Design library cell using Magic Layout and ngspice characterization](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
 - [Session 4: Pre-layout timing analysis and importance of good clock tree](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
 - [Session 5: Final steps for RTL2GDS using tritonRoute and openSTA](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-session-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+- [Certificate](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#-certificate)
 - [Acknowledgements](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/README.md#%EF%B8%8F-acknowledgements)
 
 #
