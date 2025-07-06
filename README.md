@@ -987,9 +987,12 @@ After routing and DRC the next step is Parasitic extraction. Resistance and capa
    
    This is the final generated layout.
    
-   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-53.png)
+   ![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/Day5/Screenshot%20from%202025-06-17%2016-06-53.png)<br>
 
-   ### ✍️ Acknowledgements
+### 🎓 Certificate
+![image](https://github.com/rinki89/Digital-VLSI-SoC-design-and-planning/blob/main/Pictures/2_VSD%20nasscom%20Workshop%20Certificate%202025VSD.pdf)   
+
+### ✍️ Acknowledgements
    I sincerely thank __Mr. Kunal Ghosh__ and __Mr. Nickson P. Jose__ for their expert guidance during the __DIGITAL VLSI SoC Design and Planning workshop__. Their insights into OpenLANE and physical chip design were invaluable and made the learning experience truly enriching.<br>
    
    **Kunal Ghosh**<br>
